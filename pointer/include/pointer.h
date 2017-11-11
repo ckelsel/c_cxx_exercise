@@ -18,7 +18,8 @@
 extern "C" {
 #endif
 
-void run_pointer();
+void ch();
+void cp();
 
 #ifdef __cplusplus
 }

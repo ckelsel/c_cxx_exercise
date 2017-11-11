@@ -13,6 +13,6 @@ include_directories("${PROJECT_INCLUDE_DIR}")
 
 add_executable(${PROJECT_NAME} ${MAIN_SRCS})
 
-TARGET_LINK_LIBRARIES(${PROJECT_NAME} pointer)
+TARGET_LINK_LIBRARIES(${PROJECT_NAME} c_cxx_pointer)
 
 install (TARGETS ${PROJECT_NAME} DESTINATION bin)

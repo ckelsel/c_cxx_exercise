@@ -34,25 +34,12 @@ void ch()
 {
     char ch = 'a';
 
-    L_ENTER("ch");
-
     printf("lvalue: 0x%p\n", &ch);
     printf("rvalue: %c\n", ch);
-
-    L_LEAVE();
 }
 
 void cp()
 {
     char ch = 'a';
     char *cp = &ch;
-
-    L_ENTER("cp");
-
-    L_LEAVE();
-}
-
-void run_pointer()
-{
-    ch();
 }
