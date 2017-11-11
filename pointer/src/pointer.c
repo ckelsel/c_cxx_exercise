@@ -13,10 +13,46 @@
  * limitations under the License.
  */
 
- #include <stdio.h>
- #include "pointer.h"
+#include <stdio.h>
+#include "pointer.h"
+
+
+#define L_ENTER(m)              \
+    do {                        \
+        printf("=========\n");    \
+        printf("    %s\n", m);    \
+        printf("=========\n");    \
+    } while (0)
+
+#define L_LEAVE()               \
+    do {                        \
+        printf("         \n");    \
+        printf("         \n");    \
+    } while (0)
+
+void ch()
+{
+    char ch = 'a';
+
+    L_ENTER("ch");
+
+    printf("lvalue: 0x%p\n", &ch);
+    printf("rvalue: %c\n", ch);
+
+    L_LEAVE();
+}
+
+void cp()
+{
+    char ch = 'a';
+    char *cp = &ch;
+
+    L_ENTER("cp");
+
+    L_LEAVE();
+}
 
 void run_pointer()
 {
-    printf("hello");
+    ch();
 }
