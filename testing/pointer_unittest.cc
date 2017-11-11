@@ -36,3 +36,13 @@ TEST(POINTER, _cp)
 {
     _cp();
 }
+
+TEST(POINTER, x_cp)
+{
+    x_cp();
+}
+
+TEST(POINTER, x_cp_add_1)
+{
+    x_cp_add_1();
+}

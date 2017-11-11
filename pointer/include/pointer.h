@@ -19,10 +19,20 @@ extern "C" {
 #endif
 
 void ch();
+
+// &ch
 void _ch();
 
 void cp();
+
+// &cp
 void _cp();
+
+// *cp
+void x_cp();
+
+// *cp + 1
+void x_cp_add_1();
 
 #ifdef __cplusplus
 }

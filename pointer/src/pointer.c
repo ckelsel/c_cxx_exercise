@@ -134,3 +134,41 @@ char _cp()
     printf("lvalue: illegal\n");
     printf("\n");
 }
+
+void x_cp()
+{
+    L_ENTER("*cp");
+
+    char ch = 'a';
+    char *cp = &ch;
+
+    // *cp -> *&ch -> ch
+    // ... = *cp;
+    printf("rvalue: *cp = %c\n", *cp);
+    printf("\n");
+
+    // *cp -> *&ch -> ch
+    // *cp = ...;
+    *cp = 'b';
+    printf("a -> %c\n", *cp);
+    printf("lvalue: 0x%p\n", &ch);
+    printf("\n");
+}
+
+void x_cp_add_1()
+{
+    L_ENTER("*cp + 1");
+
+    char ch = 'a';
+    char *cp = &ch;
+
+    // *cp -> *&ch -> ch
+    // ... = *cp + 1;
+    printf("rvalue: *cp + 1 = %c\n", *cp + 1);
+    printf("\n");
+
+    // *cp -> *&ch -> ch
+    // *cp + 1 = ...;
+    printf("lvalue: illegal\n");
+    printf("\n");
+}
