@@ -20,3 +20,13 @@ TEST(POINTER, ch)
 {
     ch();
 }
+
+TEST(POINTER, _ch)
+{
+    _ch();
+}
+
+TEST(POINTER, cp)
+{
+    cp();
+}

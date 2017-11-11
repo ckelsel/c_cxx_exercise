@@ -34,12 +34,56 @@ void ch()
 {
     char ch = 'a';
 
-    printf("lvalue: 0x%p\n", &ch);
-    printf("rvalue: %c\n", ch);
+    printf("char ch = 'a';\n");
+    printf("\n");
+
+    printf("[lvalue]\n");
+    printf("ch = 'b';\n");
+    printf("ch: %p\n", &ch);
+    printf("lvalue: 0x%p -> address of ch\n", &ch);
+    printf("\n");
+
+    printf("[rvalue]\n");
+    printf("char tmp = ch;\n");
+    printf("ch: %c\n", ch);
+    printf("rvalue: %c -> value of ch\n", ch);
+    printf("\n");
+}
+
+void _ch()
+{
+    char ch = 'a';
+
+    // &ch actor as rvalue
+    char *cp = &ch;
+
+    printf("char ch = 'a';\n");
+    printf("\n");
+
+    // address of &ch is undefined
+    printf("lvalue: None\n");
+    printf("\n");
+
+    printf("char *cp = &ch;\n");
+    printf("rvalue: %p -> address of &ch\n", &ch);
+    printf("\n");
 }
 
 void cp()
 {
     char ch = 'a';
     char *cp = &ch;
+
+    printf("char ch = 'a';\n");
+    printf("char *cp = &ch;\n");
+    printf("\n");
+
+    printf("ch: %p\n", &ch);
+    printf("lvalue: %p -> address of ch\n", cp);
+    printf("\n");
+
+    char **cpp = &cp;
+    printf("cpp: %p\n", cpp);
+    printf("rvalue: %p -> address of cp\n", &cp);
+    printf("\n");
 }

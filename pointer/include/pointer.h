@@ -19,6 +19,8 @@ extern "C" {
 #endif
 
 void ch();
+void _ch();
+
 void cp();
 
 #ifdef __cplusplus
