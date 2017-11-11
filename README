@@ -1,0 +1,13 @@
+Project Structure
+
+    proejct1
+        include
+        src
+        CmakeLists.txt
+    proejct2
+        include
+        src
+        CmakeLists.txt
+    ....
+    include
+    CMakeLists.txt
