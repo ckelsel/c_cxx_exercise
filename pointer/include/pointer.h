@@ -22,6 +22,7 @@ void ch();
 void _ch();
 
 void cp();
+void _cp();
 
 #ifdef __cplusplus
 }

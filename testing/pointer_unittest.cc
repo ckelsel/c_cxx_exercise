@@ -30,3 +30,9 @@ TEST(POINTER, cp)
 {
     cp();
 }
+
+
+TEST(POINTER, _cp)
+{
+    _cp();
+}
