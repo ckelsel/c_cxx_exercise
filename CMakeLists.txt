@@ -30,7 +30,8 @@ set(CMAKE_CXX_FLAGS ${COMMON_CXX_FLAGS})
 #-------------------
 # set common include folder for module
 #-------------------
-set(COMMON_INCLUDES ${PROJECT_SOURCE_DIR}/pointer/include)
+set(COMMON_INCLUDES ${PROJECT_SOURCE_DIR}/pointer/src)
+set(COMMON_INCLUDES ${COMMON_INCLUDES} ${PROJECT_SOURCE_DIR}/list/src)
 set(EXT_PROJECTS_DIR ${PROJECT_SOURCE_DIR}/ext)
 
 message(${COMMON_INCLUDES})
@@ -39,8 +40,11 @@ message(${COMMON_INCLUDES})
 # Module source
 #-------------------
 
-set(PROJECT_LIB_NAME ${PROJECT_NAME_STR}_pointer)
+set(PROJECT_LIB_POINTER ${PROJECT_NAME_STR}_pointer)
 add_subdirectory(${PROJECT_SOURCE_DIR}/pointer)
+
+set(PROJECT_LIB_LIST ${PROJECT_NAME_STR}_list)
+add_subdirectory(${PROJECT_SOURCE_DIR}/list)
 
 
 add_subdirectory(${PROJECT_SOURCE_DIR}/project2)

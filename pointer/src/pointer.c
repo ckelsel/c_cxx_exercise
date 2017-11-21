@@ -112,7 +112,7 @@ void cp()
     printf("\n");
 }
 
-char _cp()
+void _cp()
 {
     L_ENTER("&cp");
 

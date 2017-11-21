@@ -8,12 +8,13 @@ set(PROJECT_TEST_NAME ${PROJECT_LIB_NAME}_test)
 
 set(TEST_SRC_FILES unittest.cc)
 set(TEST_SRC_FILES ${TEST_SRC_FILES} pointer_unittest.cc)
+set(TEST_SRC_FILES ${TEST_SRC_FILES} list_unittest.cc)
 
 
-add_executable(${PROJECT_TEST_NAME} ${TEST_SRC_FILES} ${TEST_COMMON_SRC_FILES})
+add_executable(${PROJECT_TEST_NAME} ${TEST_SRC_FILES})
 add_dependencies(${PROJECT_TEST_NAME} googletest)
-target_link_libraries(${PROJECT_TEST_NAME} ${PROJECT_LIB_NAME}
-    ${PROJECT_IPC_LIB_NAME} ${PROJECT_NET_LIB_NAME} ${EXT_LIBS})
+target_link_libraries(${PROJECT_TEST_NAME} ${PROJECT_LIB_POINTER}
+    ${PROJECT_LIB_LIST} ${EXT_LIBS})
 
 if(NOT WIN32)
     target_link_libraries(${PROJECT_TEST_NAME}

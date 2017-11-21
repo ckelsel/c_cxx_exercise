@@ -8,7 +8,7 @@
             "type": "shell",
             "command": "echo Hello",
             "windows": {
-                "command": ".\\afbuild.bat"
+                "command": ".\\fbuild.bat"
             }
         }
     ]
