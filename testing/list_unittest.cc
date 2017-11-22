@@ -23,9 +23,7 @@ struct LinkListNode {
 };
 
 TEST(List, Empty) {
-    List L = (List)malloc(sizeof(struct LinkListNode));
-
-    MakeEmpty(L);
+    List L = MakeEmpty(NULL);
     ASSERT_TRUE(IsEmpty(L));
 
     Print(L);
@@ -33,8 +31,7 @@ TEST(List, Empty) {
 }
 
 TEST(List, InsertAndDelete) {
-    List L = (List)malloc(sizeof(struct LinkListNode));
-    MakeEmpty(L);
+    List L = MakeEmpty(NULL);
 
     for (int i = 0; i < 10; i++) {
         Insert(i, L, L);
@@ -54,8 +51,7 @@ TEST(List, InsertAndDelete) {
 }
 
 TEST(List, DeleteList) {
-    List L = (List)malloc(sizeof(struct LinkListNode));
-    MakeEmpty(L);
+    List L = MakeEmpty(NULL);
 
     for (int i = 0; i < 10; i++) {
         Insert(i, L, L);
@@ -63,6 +59,7 @@ TEST(List, DeleteList) {
     Print(L);
 
     DeleteList(L);
+    ASSERT_TRUE(IsEmpty(L));
     Print(L);
 
     free(L);
@@ -70,8 +67,7 @@ TEST(List, DeleteList) {
 
 
 TEST(List, Find) {
-    List L = (List)malloc(sizeof(struct LinkListNode));
-    MakeEmpty(L);
+    List L = MakeEmpty(NULL);
 
     for (int i = 0; i < 10; i++) {
         Insert(i, L, L);
@@ -88,8 +84,9 @@ TEST(List, Find) {
     ASSERT_EQ(previous->Element, 4);
 
     previous = FindPrevious(33, L);
-    ASSERT_EQ(previous, (const Position)NULL);
+    ASSERT_EQ(previous->Next, (const Position)NULL);
 
     DeleteList(L);
+    ASSERT_TRUE(IsEmpty(L));
     free(L);
 }
