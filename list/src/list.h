@@ -22,15 +22,15 @@ extern "C" {
 
 typedef int ElementType;
 
-struct node;
+struct LinkListNode;
 
-typedef struct Node *PtrToNode;
+typedef struct LinkListNode *PtrToNode;
 typedef PtrToNode List;
 typedef PtrToNode Position;
 
 List MakeEmpty(List L);
 int IsEmpty(List L);
-int IsLast(List L);
+int IsLast(Position P, List L);
 Position Find(ElementType X, List L);
 void Delete(ElementType X, List L);
 Position FindPrevious(ElementType X, List L);
@@ -39,7 +39,8 @@ void DeleteList(List L);
 Position Header(List L);
 Position First(List L);
 Position Advance(Position P);
-Position Retrieve(Position P);
+ElementType Retrieve(Position P);
+void Print(List L);
 
 #ifdef __cplusplus
 }

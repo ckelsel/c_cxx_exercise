@@ -16,8 +16,80 @@
 #include "gtest/gtest.h"
 #include "list.h"
 
+
+struct LinkListNode {
+    ElementType Element;
+    Position Next;
+};
+
 TEST(List, Empty) {
-    List L;
+    List L = (List)malloc(sizeof(struct LinkListNode));
+
     MakeEmpty(L);
     ASSERT_TRUE(IsEmpty(L));
+
+    Print(L);
+    free(L);
+}
+
+TEST(List, InsertAndDelete) {
+    List L = (List)malloc(sizeof(struct LinkListNode));
+    MakeEmpty(L);
+
+    for (int i = 0; i < 10; i++) {
+        Insert(i, L, L);
+    }
+
+    Print(L);
+
+    Delete(33, L);
+
+    for (int i = 0; i < 10; i++) {
+        Delete(i, L);
+    }
+
+    Print(L);
+
+    free(L);
+}
+
+TEST(List, DeleteList) {
+    List L = (List)malloc(sizeof(struct LinkListNode));
+    MakeEmpty(L);
+
+    for (int i = 0; i < 10; i++) {
+        Insert(i, L, L);
+    }
+    Print(L);
+
+    DeleteList(L);
+    Print(L);
+
+    free(L);
+}
+
+
+TEST(List, Find) {
+    List L = (List)malloc(sizeof(struct LinkListNode));
+    MakeEmpty(L);
+
+    for (int i = 0; i < 10; i++) {
+        Insert(i, L, L);
+    }
+    Print(L);
+
+    Position current = Find(3, L);
+    ASSERT_EQ(current->Element, 3);
+
+    current = Find(13, L);
+    ASSERT_EQ(current, (const Position)NULL);
+
+    Position previous = FindPrevious(3, L);
+    ASSERT_EQ(previous->Element, 4);
+
+    previous = FindPrevious(33, L);
+    ASSERT_EQ(previous, (const Position)NULL);
+
+    DeleteList(L);
+    free(L);
 }

@@ -13,69 +13,175 @@
  * limitations under the License.
  */
 #include <stdio.h>
+#include <assert.h>
 #include "list.h"
 
-struct Node {
+struct LinkListNode {
     ElementType Element;
     Position Next;
 };
 
 List MakeEmpty(List L)
 {
-    return NULL;
+    assert(L);
+    L->Next = NULL;
+    return L;
 }
 
 int IsEmpty(List L)
 {
-    return 0;
+    assert(L);
+    return L->Next == NULL;
 }
 
-int IsLast(List L)
+int IsLast(Position P, List L)
 {
-    return 0;    
+    assert(L);
+    assert(P);
+
+    // pointer to header
+    List iter = L;
+
+    while (iter->Next) {
+        iter = iter->Next;
+    }
+    
+    return P == iter;    
 }
 
 Position Find(ElementType X, List L)
 {
+    assert(L);
+
+    List iter = L;
+
+    while (iter->Next) {
+        iter = iter->Next;
+
+        if (iter->Element == X) {
+            return iter;
+        }
+    }
+
     return NULL;
 }
 
 void Delete(ElementType X, List L)
 {
+    assert(L);
+
+    // pointer to header
+    List iter = L;
     
+    while (iter->Next) {
+        List find = iter->Next;
+        if (find->Element == X) {
+            // remove
+            iter->Next = find->Next;
+
+            // free resource
+            free(find);
+            break;
+        }
+
+        iter = iter->Next;
+    }
 }
 
 Position FindPrevious(ElementType X, List L)
 {
+    assert(L);
+
+    List iter = L;
+
+    while (iter->Next) {
+        if (iter->Next->Element == X) {
+            return iter;
+        }
+
+        iter = iter->Next;
+    }
+
     return NULL;
 }
 
 void Insert(ElementType X, List L, Position P)
 {
-    
+    assert(L);
+    assert(P);
+
+    Position node = (Position)malloc(sizeof(struct LinkListNode));
+    if (!node) {
+        assert(0);
+        return;
+    }
+    node->Element = X;
+
+    List iter = L;
+
+    // compare header
+    while (iter) {
+        if (iter == P) {
+            node->Next = iter->Next;
+            iter->Next = node;
+            break;
+        }
+
+        iter = iter->Next;
+    }
 }
 
 void DeleteList(List L)
 {
-    
+    assert(L);
+
+    List iter = L;
+
+    while (iter->Next) {
+        // get item
+        List delete = iter->Next;
+
+        // remove
+        iter->Next = delete ->Next;
+        
+        free(delete);
+    }
 }
 
 Position Header(List L)
 {
-    return NULL;
+    assert(L);
+    return L;
 }
 
 Position First(List L)
 {
-    return NULL;
+    assert(L);
+    return L->Next;
 }
 
 Position Advance(Position P)
 {
-    return NULL;
+    assert(P);
+    return P->Next;
 }
 
-Position Retrieve(Position P)
+ElementType Retrieve(Position P)
 {
-    return NULL;
+    assert(P);
+    return P->Element;
+}
+
+void Print(List L)
+{
+    assert(L);
+
+    List iter = L;
+
+    printf("element: ");
+    while (iter->Next) {
+        iter = iter->Next;
+        printf("%d ", iter->Element);
+    }
+    printf("\n");
 }
