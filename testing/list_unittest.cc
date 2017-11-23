@@ -41,6 +41,9 @@ TEST(List, InsertAndDelete) {
 
     Delete(33, L);
 
+    Delete(0, L);
+    Delete(9, L);
+
     for (int i = 0; i < 10; i++) {
         Delete(i, L);
     }
@@ -75,13 +78,13 @@ TEST(List, Find) {
     Print(L);
 
     Position current = Find(3, L);
-    ASSERT_EQ(current->Element, 3);
+    ASSERT_EQ(Retrieve(current), 3);
 
     current = Find(13, L);
     ASSERT_EQ(current, (const Position)NULL);
 
     Position previous = FindPrevious(3, L);
-    ASSERT_EQ(previous->Element, 4);
+    ASSERT_EQ(Retrieve(previous), 4);
 
     previous = FindPrevious(33, L);
     ASSERT_EQ(previous->Next, (const Position)NULL);

@@ -28,13 +28,22 @@ typedef struct LinkListNode *PtrToNode;
 typedef PtrToNode List;
 typedef PtrToNode Position;
 
+// if L is NULL, then create a empty List With header
+// if L is not NULL, then free it. Then create a empty List With header
 List MakeEmpty(List L);
+
 int IsEmpty(List L);
 int IsLast(Position P, List L);
 Position Find(ElementType X, List L);
 void Delete(ElementType X, List L);
+
+// success if Position->Next is not NULL
 Position FindPrevious(ElementType X, List L);
+
+// Insert X after Position P
 void Insert(ElementType X, List L, Position P);
+
+// free whose L with
 void DeleteList(List L);
 Position Header(List L);
 Position First(List L);

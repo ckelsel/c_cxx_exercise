@@ -5,7 +5,8 @@ set (PROJECT_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/include)
 set (PROJECT_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
  
 set(LIST_SRCS 
-    ${PROJECT_SOURCE_DIR}/list.c
+    #${PROJECT_SOURCE_DIR}/list.c
+    ${PROJECT_SOURCE_DIR}/list_v2.c
 )
  
 include_directories("${PROJECT_BINARY_DIR}")
