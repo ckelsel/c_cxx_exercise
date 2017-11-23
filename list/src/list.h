@@ -50,6 +50,18 @@ Position First(List L);
 Position Advance(Position P);
 ElementType Retrieve(Position P);
 void Reverse(List L);
+
+// get middle position
+Position Middle(List L);
+
+// merge L2 into L1
+void Merge(List L1, List L2);
+
+// check if circle
+void IsCircle(List L);
+
+void Sort(List L);
+
 void Print(List L);
 
 #ifdef __cplusplus

@@ -141,9 +141,13 @@ void Print(List L)
     printf("\n");
 }
 
+// first 指向反转后的第一个节点
+// last 指向反转后的最后一个节点
+// current 指向last
 void Reverse(List L)
 {
     Position current = L->Next;
+
     Position first = L->Next;
 
     // mark last element
@@ -164,4 +168,25 @@ void Reverse(List L)
         current = last;
         first = move;
     }
+}
+
+Position Middle(List L)
+{
+    return NULL;
+}
+
+void Merge(List L1, List L2)
+{
+    
+}
+
+void IsCircle(List L)
+{
+    
+}
+
+
+void Sort(List L)
+{
+
 }
