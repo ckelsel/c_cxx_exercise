@@ -140,3 +140,28 @@ void Print(List L)
     }
     printf("\n");
 }
+
+void Reverse(List L)
+{
+    Position current = L->Next;
+    Position first = L->Next;
+
+    // mark last element
+    Position last = L->Next;
+
+    while (current && current->Next) {
+
+        Position move = current->Next;
+
+        // remove
+        current->Next = move->Next;
+
+        // insert
+        move->Next = first;
+        L->Next = move;
+
+        // always move to last element
+        current = last;
+        first = move;
+    }
+}

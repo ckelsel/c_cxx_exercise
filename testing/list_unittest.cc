@@ -93,3 +93,36 @@ TEST(List, Find) {
     ASSERT_TRUE(IsEmpty(L));
     free(L);
 }
+
+TEST(List, Reverse) {
+    List L = MakeEmpty(NULL);
+
+    for (int i = 0; i < 10; i++) {
+        Insert(i, L, L);
+    }
+
+    Print(L);
+
+    Reverse(L);
+    ASSERT_EQ(Retrieve(First(L)), 0);
+    
+    for (int i = 2; i < 10; i++) {
+        Delete(i, L);
+    }
+
+    Reverse(L);
+    ASSERT_EQ(Retrieve(First(L)), 1);
+
+    Delete(1, L);
+    Reverse(L);
+    ASSERT_EQ(Retrieve(First(L)), 0);
+
+    Delete(0, L);
+    Reverse(L);
+
+    Print(L);
+
+    DeleteList(L);
+    ASSERT_TRUE(IsEmpty(L));
+    free(L);
+}

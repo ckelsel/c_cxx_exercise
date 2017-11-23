@@ -49,6 +49,7 @@ Position Header(List L);
 Position First(List L);
 Position Advance(Position P);
 ElementType Retrieve(Position P);
+void Reverse(List L);
 void Print(List L);
 
 #ifdef __cplusplus
