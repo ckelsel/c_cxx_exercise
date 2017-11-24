@@ -43,7 +43,7 @@ Position FindPrevious(ElementType X, List L);
 // Insert X after Position P
 void Insert(ElementType X, List L, Position P);
 
-// free whose L with
+// free whose L without header
 void DeleteList(List L);
 Position Header(List L);
 Position First(List L);
@@ -52,15 +52,15 @@ ElementType Retrieve(Position P);
 void Reverse(List L);
 
 // get middle position
+// return NULL if L is empty else return middle positon
 Position Middle(List L);
 
 // merge L2 into L1
 void Merge(List L1, List L2);
 
-// check if circle
-void IsCircle(List L);
+// return TRUE if circle
+int IsCircle(List L);
 
-void Sort(List L);
 
 void Print(List L);
 

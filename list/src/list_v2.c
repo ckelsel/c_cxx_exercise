@@ -40,16 +40,20 @@ List MakeEmpty(List L)
 
 int IsEmpty(List L)
 {
+    assert(L);
     return L->Next == NULL;
 }
 
 int IsLast(Position P, List L)
 {
+    assert(P);
     return P->Next == NULL;
 }
 
 Position Find(ElementType X, List L)
 {
+    assert(L);
+
     Position P;
 
     P = L->Next;
@@ -62,6 +66,8 @@ Position Find(ElementType X, List L)
 
 void Delete(ElementType X, List L)
 {
+   assert(L);
+
    Position P;
 
    P = FindPrevious(X, L);
@@ -75,6 +81,8 @@ void Delete(ElementType X, List L)
 
 Position FindPrevious(ElementType X, List L)
 {
+    assert(L);
+
     Position P;
 
     P = L;
@@ -87,6 +95,9 @@ Position FindPrevious(ElementType X, List L)
 
 void Insert(ElementType X, List L, Position P)
 {
+    assert(L);
+    assert(P);
+
     Position node;
 
     node = (Position)malloc(sizeof(struct LinkListNode));
@@ -101,6 +112,8 @@ void Insert(ElementType X, List L, Position P)
 
 void DeleteList(List L)
 {
+    assert(L);
+
     Position P = L->Next;
     L->Next = NULL;
 
@@ -118,16 +131,20 @@ Position Header(List L)
 
 Position First(List L)
 {
+    assert(L);
+
     return L->Next;
 }
 
 Position Advance(Position P)
 {
+    assert(P);
     return P->Next;
 }
 
 ElementType Retrieve(Position P)
 {
+    assert(P);
     return P->Element;
 }
 
@@ -146,6 +163,8 @@ void Print(List L)
 // current 指向last
 void Reverse(List L)
 {
+    assert(L);
+
     Position current = L->Next;
 
     Position first = L->Next;
@@ -170,23 +189,52 @@ void Reverse(List L)
     }
 }
 
+// first move one
+// second move two
 Position Middle(List L)
 {
-    return NULL;
+    assert(L);
+
+    Position first;
+    Position second;
+
+    first = L->Next;
+    second = L->Next;
+
+#if 1
+    while (second && second->Next && second->Next->Next) {
+        first = first->Next;
+        second = second->Next->Next;
+    }
+#else
+    while (second && second->Next) {
+        second = second->Next;
+        if (second->Next) {
+            second = second->Next;
+            first = first->Next;
+        }
+    }
+#endif
+    
+    return first;
 }
 
 void Merge(List L1, List L2)
 {
-    
 }
 
-void IsCircle(List L)
+// circle is connect to header
+int IsCircle(List L)
 {
-    
+    assert(L);
+
+    Position P = L->Next;
+
+    while (P && P != L) {
+        P = P->Next;
+    }
+
+    return P == L;
 }
 
 
-void Sort(List L)
-{
-
-}

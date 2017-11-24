@@ -22,6 +22,16 @@ struct LinkListNode {
     Position Next;
 };
 
+List CreateList(int length) {
+    List L = MakeEmpty(NULL);
+
+    for (int i = 0; i < length; i++) {
+        Insert(i, L, L);
+    }
+    return L;
+}
+
+
 TEST(List, Empty) {
     List L = MakeEmpty(NULL);
     ASSERT_TRUE(IsEmpty(L));
@@ -31,11 +41,7 @@ TEST(List, Empty) {
 }
 
 TEST(List, InsertAndDelete) {
-    List L = MakeEmpty(NULL);
-
-    for (int i = 0; i < 10; i++) {
-        Insert(i, L, L);
-    }
+    List L = CreateList(10);
 
     Print(L);
 
@@ -54,11 +60,7 @@ TEST(List, InsertAndDelete) {
 }
 
 TEST(List, DeleteList) {
-    List L = MakeEmpty(NULL);
-
-    for (int i = 0; i < 10; i++) {
-        Insert(i, L, L);
-    }
+    List L = CreateList(10);
     Print(L);
 
     DeleteList(L);
@@ -70,11 +72,7 @@ TEST(List, DeleteList) {
 
 
 TEST(List, Find) {
-    List L = MakeEmpty(NULL);
-
-    for (int i = 0; i < 10; i++) {
-        Insert(i, L, L);
-    }
+    List L = CreateList(10);
     Print(L);
 
     Position current = Find(3, L);
@@ -95,12 +93,7 @@ TEST(List, Find) {
 }
 
 TEST(List, Reverse) {
-    List L = MakeEmpty(NULL);
-
-    for (int i = 0; i < 10; i++) {
-        Insert(i, L, L);
-    }
-
+    List L = CreateList(10);
     Print(L);
 
     Reverse(L);
@@ -124,5 +117,42 @@ TEST(List, Reverse) {
 
     DeleteList(L);
     ASSERT_TRUE(IsEmpty(L));
+    free(L);
+}
+
+TEST(List, Middle) {
+    List L = CreateList(0);
+
+    // empty
+    Position middle = Middle(L);
+    ASSERT_EQ(middle, (const Position)NULL);
+
+    // 9 elements
+    for (int i = 0; i < 9; i++) {
+        Insert(i, L, L);
+    }
+    middle = Middle(L);
+    ASSERT_EQ(Retrieve(middle), 4);
+
+    // 9 8 7 6 5 4 3 2 1 0
+    // 10 elements
+    Insert(9, L, L);
+    middle = Middle(L);
+    ASSERT_EQ(Retrieve(middle), 5);
+
+    DeleteList(L);
+    free(L);
+}
+
+TEST(List, IsCircle) {
+    List L = CreateList(2);
+
+    ASSERT_FALSE(!!IsCircle(L));
+
+    L->Next->Next = L;
+    ASSERT_TRUE(!!IsCircle(L));
+
+    L->Next->Next = NULL;
+    DeleteList(L);
     free(L);
 }
