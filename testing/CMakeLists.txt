@@ -9,6 +9,7 @@ set(PROJECT_TEST_NAME ${PROJECT_LIB_NAME}_test)
 set(TEST_SRC_FILES unittest.cc)
 set(TEST_SRC_FILES ${TEST_SRC_FILES} pointer_unittest.cc)
 set(TEST_SRC_FILES ${TEST_SRC_FILES} list_unittest.cc)
+set(TEST_SRC_FILES ${TEST_SRC_FILES} tree_unittest.cc)
 
 
 add_executable(${PROJECT_TEST_NAME} ${TEST_SRC_FILES})
