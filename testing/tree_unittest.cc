@@ -18,4 +18,33 @@
 
 TEST(TREE, MakeEmpty)
 {
+    SearchTree T = TreeMakeEmpty(NULL);
+
+    for (int i = 0, j = 0; i < 50; i++, j = (j + 7) % 50) {
+        T = TreeInsert(j, T);
+    }
+
+    for (int i = 0; i < 50; i++) {
+        Position P = TreeFind(i, T);
+        ASSERT_NE(P, (const Position)NULL);
+        ASSERT_EQ(TreeRetrieve(P), i);
+    }
+
+    for (int i = 0; i < 50; i += 2 ) {
+        T = TreeDelete(i, T);
+    }
+
+    for (int i = 1; i < 50; i += 2) {
+        Position P = TreeFind(i, T);
+        ASSERT_NE(P, (const Position)NULL);
+        ASSERT_EQ(TreeRetrieve(P), i);
+    }
+
+    for (int i = 0; i < 50; i += 2) {
+        Position P = TreeFind(i, T);
+        ASSERT_EQ(P, (const Position)NULL);
+    }
+
+    ASSERT_EQ(TreeRetrieve(TreeFindMax(T)), 49);
+    ASSERT_EQ(TreeRetrieve(TreeFindMin(T)), 1);
 }

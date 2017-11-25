@@ -22,7 +22,7 @@ struct LinkListNode {
     Position Next;
 };
 
-List MakeEmpty(List L)
+List ListMakeEmpty(List L)
 {
     if (L) {
         DeleteList(L);
@@ -38,19 +38,19 @@ List MakeEmpty(List L)
     return L;
 }
 
-int IsEmpty(List L)
+int IsListEmpty(List L)
 {
     assert(L);
     return L->Next == NULL;
 }
 
-int IsLast(Position P, List L)
+int IsListLast(Position P, List L)
 {
     assert(P);
     return P->Next == NULL;
 }
 
-Position Find(ElementType X, List L)
+Position ListFind(ElementType X, List L)
 {
     assert(L);
 
@@ -64,14 +64,14 @@ Position Find(ElementType X, List L)
     return P;
 }
 
-void Delete(ElementType X, List L)
+void ListDelete(ElementType X, List L)
 {
    assert(L);
 
    Position P;
 
-   P = FindPrevious(X, L);
-   if (!IsLast(P, L)) {
+   P = ListFindPrevious(X, L);
+   if (!IsListLast(P, L)) {
        Position del = P->Next;
        P->Next = del->Next;
 
@@ -79,7 +79,7 @@ void Delete(ElementType X, List L)
    } 
 }
 
-Position FindPrevious(ElementType X, List L)
+Position ListFindPrevious(ElementType X, List L)
 {
     assert(L);
 
@@ -93,7 +93,7 @@ Position FindPrevious(ElementType X, List L)
     return P;
 }
 
-void Insert(ElementType X, List L, Position P)
+void ListInsert(ElementType X, List L, Position P)
 {
     assert(L);
     assert(P);
@@ -124,31 +124,31 @@ void DeleteList(List L)
     }
 }
 
-Position Header(List L)
+Position ListHeader(List L)
 {
     return L;
 }
 
-Position First(List L)
+Position ListFirst(List L)
 {
     assert(L);
 
     return L->Next;
 }
 
-Position Advance(Position P)
+Position ListAdvance(Position P)
 {
     assert(P);
     return P->Next;
 }
 
-ElementType Retrieve(Position P)
+ElementType ListRetrieve(Position P)
 {
     assert(P);
     return P->Element;
 }
 
-void Print(List L)
+void ListPrint(List L)
 {
     Position P = L->Next;
     while (P != NULL) {
@@ -161,7 +161,7 @@ void Print(List L)
 // first 指向反转后的第一个节点
 // last 指向反转后的最后一个节点
 // current 指向last
-void Reverse(List L)
+void ListReverse(List L)
 {
     assert(L);
 
@@ -191,7 +191,7 @@ void Reverse(List L)
 
 // first move one
 // second move two
-Position Middle(List L)
+Position ListMiddle(List L)
 {
     assert(L);
 
@@ -219,12 +219,12 @@ Position Middle(List L)
     return first;
 }
 
-void Merge(List L1, List L2)
+void ListMerge(List L1, List L2)
 {
 }
 
 // circle is connect to header
-int IsCircle(List L)
+int IsListCircle(List L)
 {
     assert(L);
 

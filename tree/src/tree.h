@@ -28,21 +28,21 @@ typedef struct TreeNode *PtrToNode;
 typedef PtrToNode SearchTree;
 typedef PtrToNode Position;
 
-SearchTree MakeEmpty(SearchTree T);
+SearchTree TreeMakeEmpty(SearchTree T);
 
-Position Find(ElementType X, SearchTree T);
+Position TreeFind(ElementType X, SearchTree T);
 
-Position FindMax(SearchTree T);
+Position TreeFindMax(SearchTree T);
 
-Position FindMin(SearchTree T);
+Position TreeFindMin(SearchTree T);
 
-SearchTree Insert(ElementType X, SearchTree T);
+SearchTree TreeInsert(ElementType X, SearchTree T);
 
-SearchTree Delete(ElementType X, SearchTree T);
+SearchTree TreeDelete(ElementType X, SearchTree T);
 
-ElementType Retrieve(Position P);
+ElementType TreeRetrieve(Position P);
 
-void Print(SearchTree L);
+void TreePrint(SearchTree T);
 
 #ifdef __cplusplus
 }

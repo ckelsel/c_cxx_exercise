@@ -22,42 +22,133 @@ struct TreeNode {
     SearchTree  Right;
 };
 
-SearchTree MakeEmpty(SearchTree T)
+SearchTree TreeMakeEmpty(SearchTree T)
 {
+    if (T) {
+        TreeMakeEmpty(T->Left);
+        TreeMakeEmpty(T->Right);
+        free(T);
+    }
+
     return NULL;
 }
 
-Position Find(ElementType X, SearchTree T)
+Position TreeFind(ElementType X, SearchTree T)
 {
-    return NULL;
+    if (T == NULL) {
+        return NULL;
+    }
+
+    if (X < T->Element) {
+        return TreeFind(X, T->Left);
+    } else if (X > T->Element) {
+        return TreeFind(X, T->Right);
+    } else {
+        return T;
+    }
 }
 
-Position FindMax(SearchTree T)
+Position TreeFindMax(SearchTree T)
 {
-    return NULL;
+    if (T == NULL) {
+        return NULL;
+    }
+
+    while (T->Right != NULL) {
+        T = T->Right;
+    }
+
+    return T;
 }
 
-Position FindMin(SearchTree T)
+Position TreeFindMin(SearchTree T)
 {
-    return NULL;
+    if (T == NULL) {
+        return NULL;
+    }
+
+    if (T->Left == NULL) {
+        return T;
+    } else {
+        return TreeFindMin(T->Left);
+    }
 }
 
-SearchTree Insert(ElementType X, SearchTree T)
+SearchTree TreeInsert(ElementType X, SearchTree T)
 {
-    return NULL;
+    if (T == NULL) {
+        T = (SearchTree)malloc(sizeof(struct TreeNode));
+        if (T == NULL) {
+            assert(0);
+            return NULL;
+        } else {
+            T->Element = X;
+            T->Left = NULL;
+            T->Right = NULL;
+        }
+    }
+
+    if (X < T->Element) {
+        T->Left = TreeInsert(X, T->Left);
+    } else if (X > T->Element) {
+        T->Right = TreeInsert(X, T->Right);
+    }
+
+    return T;
 }
 
-SearchTree Delete(ElementType X, SearchTree T)
+SearchTree TreeDelete(ElementType X, SearchTree T)
 {
-    return NULL;
+    Position tmp;
+
+    if (T == NULL) {
+        return NULL;
+    }
+
+    if (X < T->Element) {
+        T->Left = TreeDelete(X, T->Left);
+    } else if (X > T->Element) {
+        T->Right = TreeDelete(X, T->Right);
+    } else {
+        // two child
+        if (T->Left != NULL && T->Right != NULL) {
+            tmp = TreeFindMin(T->Right);
+            T->Element = tmp->Element;
+            T->Right = TreeDelete(tmp->Element, T->Right);
+        } else {
+            tmp = T;
+            if (T->Left == NULL) {
+                T = T->Right;
+            } else if (T->Right == NULL) {
+                T = T->Left;
+            }
+
+            free(tmp);
+        }
+    }
+
+    return T;
 }
 
-ElementType Retrieve(Position P)
+ElementType TreeRetrieve(Position P)
 {
-   return 0; 
+   return P->Element; 
 }
 
-void Print(SearchTree L)
+void TreePrint(SearchTree T)
 {
-    
+    if (T == NULL) {
+        return;
+    }
+
+    printf("%d ", T->Element);
+
+    if (T->Left != NULL) {
+        TreePrint(T->Left);
+    }
+
+    if (T->Right != NULL) {
+        TreePrint(T->Right);
+    }
+    printf("\n");
 }

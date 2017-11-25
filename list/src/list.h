@@ -30,39 +30,39 @@ typedef PtrToNode Position;
 
 // if L is NULL, then create a empty List With header
 // if L is not NULL, then free it. Then create a empty List With header
-List MakeEmpty(List L);
+List ListMakeEmpty(List L);
 
-int IsEmpty(List L);
-int IsLast(Position P, List L);
-Position Find(ElementType X, List L);
-void Delete(ElementType X, List L);
+int IsListEmpty(List L);
+int IsListLast(Position P, List L);
+Position ListFind(ElementType X, List L);
+void ListDelete(ElementType X, List L);
 
 // success if Position->Next is not NULL
-Position FindPrevious(ElementType X, List L);
+Position ListFindPrevious(ElementType X, List L);
 
 // Insert X after Position P
-void Insert(ElementType X, List L, Position P);
+void ListInsert(ElementType X, List L, Position P);
 
 // free whose L without header
 void DeleteList(List L);
-Position Header(List L);
-Position First(List L);
-Position Advance(Position P);
-ElementType Retrieve(Position P);
-void Reverse(List L);
+Position ListHeader(List L);
+Position ListFirst(List L);
+Position ListAdvance(Position P);
+ElementType ListRetrieve(Position P);
+void ListReverse(List L);
 
 // get middle position
 // return NULL if L is empty else return middle positon
-Position Middle(List L);
+Position ListMiddle(List L);
 
 // merge L2 into L1
-void Merge(List L1, List L2);
+void ListMerge(List L1, List L2);
 
 // return TRUE if circle
-int IsCircle(List L);
+int IsListCircle(List L);
 
 
-void Print(List L);
+void ListPrint(List L);
 
 #ifdef __cplusplus
 }

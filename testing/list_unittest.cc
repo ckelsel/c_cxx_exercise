@@ -23,49 +23,49 @@ struct LinkListNode {
 };
 
 List CreateList(int length) {
-    List L = MakeEmpty(NULL);
+    List L = ListMakeEmpty(NULL);
 
     for (int i = 0; i < length; i++) {
-        Insert(i, L, L);
+        ListInsert(i, L, L);
     }
     return L;
 }
 
 
 TEST(List, Empty) {
-    List L = MakeEmpty(NULL);
-    ASSERT_TRUE(IsEmpty(L));
+    List L = ListMakeEmpty(NULL);
+    ASSERT_TRUE(IsListEmpty(L));
 
-    Print(L);
+    ListPrint(L);
     free(L);
 }
 
 TEST(List, InsertAndDelete) {
     List L = CreateList(10);
 
-    Print(L);
+    ListPrint(L);
 
-    Delete(33, L);
+    ListDelete(33, L);
 
-    Delete(0, L);
-    Delete(9, L);
+    ListDelete(0, L);
+    ListDelete(9, L);
 
     for (int i = 0; i < 10; i++) {
-        Delete(i, L);
+        ListDelete(i, L);
     }
 
-    Print(L);
+    ListPrint(L);
 
     free(L);
 }
 
 TEST(List, DeleteList) {
     List L = CreateList(10);
-    Print(L);
+    ListPrint(L);
 
     DeleteList(L);
-    ASSERT_TRUE(IsEmpty(L));
-    Print(L);
+    ASSERT_TRUE(IsListEmpty(L));
+    ListPrint(L);
 
     free(L);
 }
@@ -73,84 +73,84 @@ TEST(List, DeleteList) {
 
 TEST(List, Find) {
     List L = CreateList(10);
-    Print(L);
+    ListPrint(L);
 
-    Position current = Find(3, L);
-    ASSERT_EQ(Retrieve(current), 3);
+    Position current = ListFind(3, L);
+    ASSERT_EQ(ListRetrieve(current), 3);
 
-    current = Find(13, L);
+    current = ListFind(13, L);
     ASSERT_EQ(current, (const Position)NULL);
 
-    Position previous = FindPrevious(3, L);
-    ASSERT_EQ(Retrieve(previous), 4);
+    Position previous = ListFindPrevious(3, L);
+    ASSERT_EQ(ListRetrieve(previous), 4);
 
-    previous = FindPrevious(33, L);
+    previous = ListFindPrevious(33, L);
     ASSERT_EQ(previous->Next, (const Position)NULL);
 
     DeleteList(L);
-    ASSERT_TRUE(IsEmpty(L));
+    ASSERT_TRUE(IsListEmpty(L));
     free(L);
 }
 
-TEST(List, Reverse) {
+TEST(List, ListReverse) {
     List L = CreateList(10);
-    Print(L);
+    ListPrint(L);
 
-    Reverse(L);
-    ASSERT_EQ(Retrieve(First(L)), 0);
+    ListReverse(L);
+    ASSERT_EQ(ListRetrieve(ListFirst(L)), 0);
     
     for (int i = 2; i < 10; i++) {
-        Delete(i, L);
+        ListDelete(i, L);
     }
 
-    Reverse(L);
-    ASSERT_EQ(Retrieve(First(L)), 1);
+    ListReverse(L);
+    ASSERT_EQ(ListRetrieve(ListFirst(L)), 1);
 
-    Delete(1, L);
-    Reverse(L);
-    ASSERT_EQ(Retrieve(First(L)), 0);
+    ListDelete(1, L);
+    ListReverse(L);
+    ASSERT_EQ(ListRetrieve(ListFirst(L)), 0);
 
-    Delete(0, L);
-    Reverse(L);
+    ListDelete(0, L);
+    ListReverse(L);
 
-    Print(L);
+    ListPrint(L);
 
     DeleteList(L);
-    ASSERT_TRUE(IsEmpty(L));
+    ASSERT_TRUE(IsListEmpty(L));
     free(L);
 }
 
-TEST(List, Middle) {
+TEST(List, ListMiddle) {
     List L = CreateList(0);
 
     // empty
-    Position middle = Middle(L);
+    Position middle = ListMiddle(L);
     ASSERT_EQ(middle, (const Position)NULL);
 
     // 9 elements
     for (int i = 0; i < 9; i++) {
-        Insert(i, L, L);
+        ListInsert(i, L, L);
     }
-    middle = Middle(L);
-    ASSERT_EQ(Retrieve(middle), 4);
+    middle = ListMiddle(L);
+    ASSERT_EQ(ListRetrieve(middle), 4);
 
     // 9 8 7 6 5 4 3 2 1 0
     // 10 elements
-    Insert(9, L, L);
-    middle = Middle(L);
-    ASSERT_EQ(Retrieve(middle), 5);
+    ListInsert(9, L, L);
+    middle = ListMiddle(L);
+    ASSERT_EQ(ListRetrieve(middle), 5);
 
     DeleteList(L);
     free(L);
 }
 
-TEST(List, IsCircle) {
+TEST(List, IsListCircle) {
     List L = CreateList(2);
 
-    ASSERT_FALSE(!!IsCircle(L));
+    ASSERT_FALSE(!!IsListCircle(L));
 
     L->Next->Next = L;
-    ASSERT_TRUE(!!IsCircle(L));
+    ASSERT_TRUE(!!IsListCircle(L));
 
     L->Next->Next = NULL;
     DeleteList(L);
