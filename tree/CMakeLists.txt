@@ -6,6 +6,7 @@ set (PROJECT_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
  
 set(LIST_SRCS 
     ${PROJECT_SOURCE_DIR}/tree.c
+    ${PROJECT_SOURCE_DIR}/avltree.c
 )
  
 include_directories("${PROJECT_BINARY_DIR}")
