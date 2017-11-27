@@ -27,7 +27,7 @@ typedef int ElementType;
 
 AvlTree AvlMakeEmpty(AvlTree T);
 
-Position AvlFind(AvlTree T);
+Position AvlFind(ElementType X, AvlTree T);
 Position AvlFindMin(AvlTree T);
 Position AvlFindMax(AvlTree T);
 
@@ -35,7 +35,7 @@ AvlTree AvlInsert(ElementType X, AvlTree T);
 
 AvlTree AvlDelete(ElementType X, AvlTree T);
 
-ElementType Retrieve(Position P);
+ElementType AvlRetrieve(Position P);
 
 #ifdef __cplusplus
 }

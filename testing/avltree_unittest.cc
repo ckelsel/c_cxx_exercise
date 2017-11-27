@@ -17,5 +17,15 @@
 #include "avltree.h"
 
 TEST(AvlTree, Empty) {
-    
+    AvlTree T = AvlMakeEmpty(NULL);
+
+    for (int i = 0, j = 0; i < 50; i++, j = (j + 7) % 50) {
+        T = AvlInsert(j, T);
+    }
+
+    for (int i = 0; i < 50; i++) {
+        Position P = AvlFind(i, T);
+        ASSERT_NE(P, (const Position)NULL);
+        ASSERT_EQ(AvlRetrieve(P), i);
+    }
 }

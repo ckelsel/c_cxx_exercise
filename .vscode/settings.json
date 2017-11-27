@@ -3,6 +3,7 @@
         "iosfwd": "c",
         "xstring": "c",
         "xutility": "c",
-        "xmemory0": "c"
+        "xmemory0": "c",
+        "assert.h": "c"
     }
 }

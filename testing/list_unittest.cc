@@ -85,7 +85,7 @@ TEST(List, Find) {
     ASSERT_EQ(ListRetrieve(previous), 4);
 
     previous = ListFindPrevious(33, L);
-    ASSERT_EQ(previous->Next, (const Position)NULL);
+    ASSERT_EQ(ListAdvance(previous), (const Position)NULL);
 
     DeleteList(L);
     ASSERT_TRUE(IsListEmpty(L));
@@ -145,7 +145,7 @@ TEST(List, ListMiddle) {
 }
 
 TEST(List, IsListCircle) {
-    List L = CreateList(2);
+    List L = CreateList(1);
 
     ASSERT_FALSE(!!IsListCircle(L));
 
