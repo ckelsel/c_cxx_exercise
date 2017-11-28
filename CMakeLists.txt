@@ -33,6 +33,7 @@ set(CMAKE_CXX_FLAGS ${COMMON_CXX_FLAGS})
 set(COMMON_INCLUDES ${PROJECT_SOURCE_DIR}/pointer/src)
 set(COMMON_INCLUDES ${COMMON_INCLUDES} ${PROJECT_SOURCE_DIR}/list/src)
 set(COMMON_INCLUDES ${COMMON_INCLUDES} ${PROJECT_SOURCE_DIR}/tree/src)
+set(COMMON_INCLUDES ${COMMON_INCLUDES} ${PROJECT_SOURCE_DIR}/effective_cxx/item2)
 set(EXT_PROJECTS_DIR ${PROJECT_SOURCE_DIR}/ext)
 
 message(${COMMON_INCLUDES})
@@ -49,6 +50,9 @@ add_subdirectory(${PROJECT_SOURCE_DIR}/list)
 
 set(PROJECT_LIB_TREE ${PROJECT_NAME_STR}_tree)
 add_subdirectory(${PROJECT_SOURCE_DIR}/tree)
+
+set(PROJECT_LIB_EFFECTIVE ${PROJECT_NAME_STR}_effective)
+add_subdirectory(${PROJECT_SOURCE_DIR}/effective_cxx)
 
 
 add_subdirectory(${PROJECT_SOURCE_DIR}/project2)
