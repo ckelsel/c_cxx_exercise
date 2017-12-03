@@ -13,16 +13,8 @@
  * limitations under the License.
  */
 
-#include "gtest/gtest.h"
-#include "item2/item2.h"
+#ifndef __ITEM3_H__
+#define __ITEM3_H__
 
-TEST(EFFECTIVE_CXX, ITEM2) {
-    ASSERT_STREQ(authorName, "xiekm");
-    ASSERT_STREQ(authorName2.c_str(), "xiekm");
-
-    ASSERT_EQ(GamePlayer::NumTurns, 5);
-
-    ASSERT_EQ(GamePlayer2::NumTurns2, 10);
-
-    ASSERT_EQ(CostEstimate::FudgeFactor, 1.35);
-}
+void item3_test();
+#endif // __ITEM3_H__

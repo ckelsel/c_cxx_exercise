@@ -13,6 +13,7 @@ set(TEST_SRC_FILES ${TEST_SRC_FILES} tree_unittest.cc)
 set(TEST_SRC_FILES ${TEST_SRC_FILES} avltree_unittest.cc)
 
 set(TEST_SRC_FILES ${TEST_SRC_FILES} effective_cxx/item2_unittest.cc)
+set(TEST_SRC_FILES ${TEST_SRC_FILES} effective_cxx/item3_unittest.cc)
 
 
 add_executable(${PROJECT_TEST_NAME} ${TEST_SRC_FILES})

@@ -14,15 +14,8 @@
  */
 
 #include "gtest/gtest.h"
-#include "item2/item2.h"
+#include "item3/item3.h"
 
-TEST(EFFECTIVE_CXX, ITEM2) {
-    ASSERT_STREQ(authorName, "xiekm");
-    ASSERT_STREQ(authorName2.c_str(), "xiekm");
-
-    ASSERT_EQ(GamePlayer::NumTurns, 5);
-
-    ASSERT_EQ(GamePlayer2::NumTurns2, 10);
-
-    ASSERT_EQ(CostEstimate::FudgeFactor, 1.35);
+TEST(EFFECTIVE_CXX, ITEM3) {
+    item3_test();
 }
