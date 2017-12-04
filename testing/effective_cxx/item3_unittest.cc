@@ -19,3 +19,29 @@
 TEST(EFFECTIVE_CXX, ITEM3) {
     item3_test();
 }
+
+TEST(EFFECTIVE_CXX, ITEM3_2) {
+    TextBlock tb("hello");
+    ASSERT_EQ(tb[0], 'h');
+
+    // modify a copy of tb[0]
+    tb[0] = 'H';
+
+    const TextBlock ctb("const hello");
+    ASSERT_EQ(ctb[0], 'c');
+    // error
+    // ctb[0] = 'C';
+}
+
+TEST(EFFECTIVE_CXX, ITEM3_NonConstMemberFunction) {
+    // When a function is declared as const, it can be called on any type of object.
+    // Non-const functions can only be called by non-const objects.
+    const NonConstMemberFunction constObject(10);
+
+    //std::cout << constObject.getValue();
+}
+
+TEST(EFFECTIVE_CXX, ITEM3_ConstMemberFunction) {
+    ConstMemberFunction nonConstObject;
+    nonConstObject.getValue();
+}
