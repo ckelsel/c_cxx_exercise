@@ -15,6 +15,62 @@
 
 #ifndef __ITEM3_H__
 #define __ITEM3_H__
+#include <string>
+#include <iostream>
+#include <iterator> // std::size
 
 void item3_test();
+
+
+// const member function
+class TextBlock {
+public:
+    TextBlock(std::string text) {
+        text_ = text;
+    }
+
+    // #1
+    const char& operator[](std::size_t position) const {
+        std::cout << "const char& operator[](std::size position) const" << std::endl;
+        return text_[position];
+    }
+
+    char& operator[](std::size_t position) {
+        std::cout << "char& operator[](std::size position)" << std::endl;
+        return text_[position];
+    }
+
+private:
+    std::string text_;
+};
+
+/////////////////
+
+class NonConstMemberFunction{
+public:
+    NonConstMemberFunction(int value = 0) { value_ = value; }
+
+    // non-const member function
+    int getValue() { return value_; }
+
+private:
+    int value_;
+};
+
+class ConstMemberFunction{
+public:
+    ConstMemberFunction(int value = 0) { value_ = value; }
+
+    // non-const member function
+    const int getValue() const { return value_; }
+
+    // #2
+    // const member function can't change member var
+    // void resetValue() const { value_ = 0; }
+
+private:
+    int value_;
+};
+
+
 #endif // __ITEM3_H__

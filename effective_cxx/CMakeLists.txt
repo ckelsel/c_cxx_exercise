@@ -7,6 +7,7 @@ set (PROJECT_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 set(POINTER_SRCS 
     ${PROJECT_SOURCE_DIR}/item2/item2.cc
     ${PROJECT_SOURCE_DIR}/item3/item3.cc
+    ${PROJECT_SOURCE_DIR}/item4/item4.cc
     ${PROJECT_SOURCE_DIR}/item24/item24.cc
 )
  
