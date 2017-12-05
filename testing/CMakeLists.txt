@@ -12,11 +12,7 @@ set(TEST_SRC_FILES ${TEST_SRC_FILES} list_unittest.cc)
 set(TEST_SRC_FILES ${TEST_SRC_FILES} tree_unittest.cc)
 set(TEST_SRC_FILES ${TEST_SRC_FILES} avltree_unittest.cc)
 
-set(TEST_SRC_FILES ${TEST_SRC_FILES} effective_cxx/item2_unittest.cc)
-set(TEST_SRC_FILES ${TEST_SRC_FILES} effective_cxx/item3_unittest.cc)
-set(TEST_SRC_FILES ${TEST_SRC_FILES} effective_cxx/item4_unittest.cc)
-set(TEST_SRC_FILES ${TEST_SRC_FILES} effective_cxx/item24_unittest.cc)
-
+file(GLOB TEST_SRC_FILES ${TEST_SRC_FILES} effective_cxx/*.cc)
 
 add_executable(${PROJECT_TEST_NAME} ${TEST_SRC_FILES})
 add_dependencies(${PROJECT_TEST_NAME} googletest)
