@@ -14,7 +14,7 @@
  */
 #include <stdio.h>
 #include <assert.h>
-
+#include <stdlib.h>
 #include "list.h"
 
 struct LinkListNode {
