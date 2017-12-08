@@ -73,9 +73,9 @@ private:
 
 class PrettyMenu_BasicExceptionSafe_RefactorMutex_SmartPointer {
 public:
-    PrettyMenu_BasicExceptionSafe_RefactorMutex_SmartPointer() : changes_(0) {
+    PrettyMenu_BasicExceptionSafe_RefactorMutex_SmartPointer() : changes_(0)
+        , image_(new Image(std::istream(NULL), false)) {
         init(&mutex_);
-        image_.reset(new Image(std::istream(NULL), false));
     }
 
     Image* GetImage() { return image_.get(); }
