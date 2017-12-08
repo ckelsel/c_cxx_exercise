@@ -18,11 +18,7 @@
 #include <fstream>
 #include <memory> // std::tr1::shared_ptr
 
-#include <windows.h>
-#define Mutex CRITICAL_SECTION
-#define init InitializeCriticalSection
-#define lock EnterCriticalSection
-#define unlock LeaveCriticalSection
+#include "../item14/item14.h"
 
 class Image {
 public:
@@ -50,24 +46,6 @@ private:
     Mutex mutex_;
     Image *image_;
     int changes_;
-};
-
-// caller should init mutex
-class Lock {
-public:
-    explicit Lock(Mutex *mutex) : mutex_(mutex) {
-        lock(mutex_);
-    }
-    ~Lock() {
-        unlock(mutex_);
-    }
-
-private:
-    Lock(const Lock &);
-    Lock& operator=(const Lock &);
-
-private:
-    Mutex *mutex_;
 };
 
 //////////////////
