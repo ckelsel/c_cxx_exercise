@@ -17,9 +17,9 @@
 
 TEST(EFFECTIVE_CXX, ITEM17) {
     // ERROR! new Widget may leak
-    ProcessWidget(std::tr1::shared_ptr<Widget>(new Widget), Priority());
+    ProcessWidget(std::tr1::shared_ptr<Widget17>(new Widget17), Priority());
 
     // SUCCESS
-    std::tr1::shared_ptr<Widget> widget(new Widget);
+    std::tr1::shared_ptr<Widget17> widget(new Widget17);
     ProcessWidget(widget, Priority());
 }

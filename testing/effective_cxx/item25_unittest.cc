@@ -12,18 +12,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#ifndef __ITEM17_H__
-#define __ITEM17_H__
-#include <memory>
 
-class Widget17 {
-};
+#include "gtest/gtest.h"
+#include "item25/item25.h"
 
-int Priority() {
-    return 0;
+TEST(EFFECTIVE_CXX, ITEM25) {
+    Widget25 a;
+    Widget25 b;
+
+    // Finally, if you're calling swap, be sure to include a using
+    // declaration to make std::swap visible in your
+    // function, then call swap without any namespace qualification
+    using std::swap;
+    swap(a, b);
 }
-
-void ProcessWidget(std::tr1::shared_ptr<Widget17> widget, int priority) {
-}
-
-#endif // __ITEM17_H__

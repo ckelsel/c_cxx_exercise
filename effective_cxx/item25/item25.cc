@@ -12,18 +12,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#ifndef __ITEM17_H__
-#define __ITEM17_H__
-#include <memory>
 
-class Widget17 {
-};
+#include "item25.h"
 
-int Priority() {
-    return 0;
+
+// copy-swap
+Widget25& Widget25::operator=(const Widget25 &rhs) {
+    Widget25 tmp(rhs);
+    swap(tmp);
+    return *this;
 }
 
-void ProcessWidget(std::tr1::shared_ptr<Widget17> widget, int priority) {
+void Widget25::swap(Widget25 &other) {
+    using std::swap;
+    swap(impl_, other.impl_);
+
+    // std::swap(impl_, other_impl_)
+    // Dont't use above, because it only use std::swap
+    // may be it has another non-member swap function
 }
 
-#endif // __ITEM17_H__
+void swap(Widget25& a, Widget25& b) {
+    a.swap(b);
+}
