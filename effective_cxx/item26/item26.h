@@ -12,9 +12,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 #ifndef __ITEM26_H__
 #define __ITEM26_H__
+//Item 26: Postpone variable definitions as long as possible.
 
 #include <string>
 

@@ -14,6 +14,7 @@
  */
 #ifndef __ITEM13_H__
 #define __ITEM13_H__
+//Item 13: Use objects to manage resources.
 
 class Investment {
 };

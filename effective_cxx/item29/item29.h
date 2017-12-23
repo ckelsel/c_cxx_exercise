@@ -14,6 +14,8 @@
  */
 #ifndef __ITEM29_H__
 #define __ITEM29_H__
+//Item29: Strive for exception-safe code.
+
 #include <istream>
 #include <fstream>
 #include <memory> // std::tr1::shared_ptr

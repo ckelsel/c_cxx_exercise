@@ -14,6 +14,7 @@
  */
 #ifndef __ITEM15_H__
 #define __ITEM15_H__
+//Item 15: Provide access to rawresources in resource-managing classes.
 
 typedef void* FontHandle;
 

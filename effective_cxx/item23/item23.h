@@ -12,9 +12,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 #ifndef __ITEM23_H__
 #define __ITEM23_H__
+//Item 23: Prefer non-member non-friend functions to member functions
 
 #include "webbrowser.h"
 class item23 {

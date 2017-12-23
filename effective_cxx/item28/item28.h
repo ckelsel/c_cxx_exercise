@@ -15,6 +15,9 @@
 
 #ifndef __ITEM28_H__
 #define __ITEM28_H__
+
+//Item 28: Avoid returning "handles" to object internals
+
 #include <memory>
 
 class Point {

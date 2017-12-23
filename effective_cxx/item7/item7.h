@@ -14,6 +14,7 @@
  */
 #ifndef __ITEM7_H__
 #define __ITEM7_H__
+//Item 7: Declare destructors virtual in polymorphic base classes
 
 extern int TimeKeeperReference;
 

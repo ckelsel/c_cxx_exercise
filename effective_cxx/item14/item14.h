@@ -14,6 +14,8 @@
  */
 #ifndef __ITEM14_H__
 #define __ITEM14_H__
+//Item 14: Think carefully about copying behavior in resource-managing classes.
+
 #include <memory>
 
 #include <windows.h>

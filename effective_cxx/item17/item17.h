@@ -14,6 +14,8 @@
  */
 #ifndef __ITEM17_H__
 #define __ITEM17_H__
+//Item 17: Store newed objects in smart pointers in standalone statements.
+
 #include <memory>
 
 class Widget17 {

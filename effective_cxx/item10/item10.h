@@ -14,6 +14,8 @@
  */
 #ifndef __ITEM10_H__
 #define __ITEM10_H__
+//Item 10: Have assignment operators return a reference to *this
+
 #include <stdint.h>
 
 // total 5 operators, =, +=, -=, *=, /=

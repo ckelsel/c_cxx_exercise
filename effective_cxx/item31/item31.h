@@ -15,6 +15,8 @@
 
 #ifndef __ITEM31_H__
 #define __ITEM31_H__
+//Item31: Minimize compilation dependencies between files.
+
 #include <memory>
 #include <string>
 

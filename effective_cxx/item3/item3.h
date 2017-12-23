@@ -12,9 +12,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 #ifndef __ITEM3_H__
 #define __ITEM3_H__
+//Item 3: Use constwhenever possible
+
 #include <string>
 #include <iostream>
 #include <iterator> // std::size

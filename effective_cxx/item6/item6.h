@@ -12,9 +12,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 #ifndef __ITEM6_H__
 #define __ITEM6_H__
+//Item 6: Explicitly disallowthe use of compiler-generated functions you do not want
 
 #define DISALLOW_COPY_AND_ASSIGN(cls) \
     cls(const cls &);                 \

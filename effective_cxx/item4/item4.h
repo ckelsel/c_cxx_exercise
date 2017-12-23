@@ -14,6 +14,8 @@
  */
 #ifndef __ITEM4_H__
 #define __ITEM4_H__
+//Item 4: Make sure that objects are initialized before they're used
+
 #include <string>
 #include <list>
 #include <iostream>

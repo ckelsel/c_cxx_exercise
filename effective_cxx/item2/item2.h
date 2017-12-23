@@ -15,8 +15,7 @@
 
 #ifndef __ITEM_2_H__
 #define __ITEM_2_H__
-
-//Prefer consts,enums,and inlines to #defines
+//Item 2: Prefer consts, enums, and inlines to #defines
 
 #include <string>
 

@@ -15,7 +15,7 @@
 
 #ifndef __ITEM12_H__
 #define __ITEM12_H__
-// Copy all parts of an object
+//Item 12: Copy all parts of an object
 
 #include <string>
 

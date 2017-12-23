@@ -15,6 +15,8 @@
 
 #ifndef __ITEM9_H__
 #define __ITEM9_H__
+//Item 9: Never call virtual functions during construction or destruction
+
 #include <string>
 
 extern std::string item9_unittest_string;

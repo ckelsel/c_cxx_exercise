@@ -14,6 +14,8 @@
  */
 #ifndef __ITEM8_H__
 #define __ITEM8_H__
+//Item 8: Prevent exceptions from leaving destructors
+
 #include <iostream>
 
 class DBConnection {

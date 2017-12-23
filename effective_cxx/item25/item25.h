@@ -12,9 +12,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 #ifndef __ITEM25_H__
 #define __ITEM25_H__
+//Item 25: Consider support for a non-throwing swap
+
 #include <vector>
 
 class WidgetImpl25 {

@@ -12,9 +12,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 #ifndef __ITEM24_H__
 #define __ITEM24_H__
+//Item 24: Declare non-member functions when type conversions should apply to allparameters
 
 // 合理的
 class Rational {
