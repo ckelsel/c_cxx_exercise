@@ -16,9 +16,9 @@
 #define __ITEM33_H__
 //Item 33: Avoid hiding inherited names
 
-class Base {
+class Base33 {
 public:
-    Base() : x_(0) {
+    Base33() : x_(0) {
     }
 
     virtual void VirtualFunction1() = 0;
@@ -41,7 +41,7 @@ protected:
     int x_;
 };
 
-class DerivedOverrideBase : public Base {
+class DerivedOverrideBase : public Base33 {
 public:
     // hide virtual void VirtualFunction1() = 0;
     // hide virtual void VirtualFunction1(int x);
@@ -55,10 +55,10 @@ public:
 };
 
 
-class DerivedCallBase : public Base {
+class DerivedCallBase : public Base33 {
 public:
-    using Base::VirtualFunction1;
-    using Base::Function3;
+    using Base33::VirtualFunction1;
+    using Base33::Function3;
 
     // hide virtual void VirtualFunction1() = 0;
     virtual void VirtualFunction1();

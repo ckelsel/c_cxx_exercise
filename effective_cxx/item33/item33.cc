@@ -23,22 +23,22 @@ void func() {
 
 /////////////////
 
-void Base::VirtualFunction1() {
+void Base33::VirtualFunction1() {
 
 }
 
-void Base::VirtualFunction1(int x) {
+void Base33::VirtualFunction1(int x) {
     x_ = x;
 }
 
-void Base::VirtualFunction2() {
+void Base33::VirtualFunction2() {
     x_ = 2;
 }
 
-void Base::Function3() {
+void Base33::Function3() {
     x_ = 3;
 }
-void Base::Function3(int x) {
+void Base33::Function3(int x) {
     x_ = x;
     
 }
