@@ -29,11 +29,14 @@ TEST(EFFECTIVE_CXX, ITEM36) {
     ASSERT_EQ(derived->getX(), 1);
 }
 
+<<<<<<< HEAD
 // The reason for this two-faced behavior is that non-virtual functions like Base::non_virtual_function and 
 // DerivedRedefine::non_virtual_function are statically bound
 // (see Item 37). That means that because base is declared to be of type pointer-to-Base, non-virtual functions invoked
 // through base will always be those defined for class Base, even if base points to an object of a class derived from Base,
 // as it does in this example.
+=======
+>>>>>>> 272704c8ddaa10821039429b43717aee18b43ba1
 TEST(EFFECTIVE_CXX, ITEM36_2) {
     DerivedRedefine redefine;
 
@@ -41,6 +44,14 @@ TEST(EFFECTIVE_CXX, ITEM36_2) {
     base->non_virtual_function();
     ASSERT_EQ(base->getX(), 1);
 
+<<<<<<< HEAD
+=======
+    // The reason for this two-faced behavior is that non-virtual functions like Base::non_virtual_function and 
+    // DerivedRedefine::non_virtual_function are statically bound
+    // (see Item 37). That means that because base is declared to be of type pointer-to-Base, non-virtual functions invoked
+    // through base will always be those defined for class Base, even if base points to an object of a class derived from Base,
+    // as it does in this example.
+>>>>>>> 272704c8ddaa10821039429b43717aee18b43ba1
     DerivedRedefine *derived = &redefine;
     derived->non_virtual_function();
     ASSERT_EQ(derived->getX(), 2);
