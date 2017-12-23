@@ -21,4 +21,28 @@ TEST(EFFECTIVE_CXX, ITEM34) {
     std::tr1::shared_ptr<Rectangle> rect(new Rectangle);
 
     rect->draw();
+    ASSERT_EQ(rect->objectID(), 11);
+
+    std::tr1::shared_ptr<Ellipse> elli(new Ellipse);
+    elli->draw();
+    ASSERT_EQ(elli->objectID(), 22);
+}
+
+TEST(EFFECTIVE_CXX, ITEM34_2) {
+    Airport airport;
+
+    std::tr1::shared_ptr<ModelA> a(new ModelA);
+
+    a->fly(airport);
+    ASSERT_EQ(a->getX(), 1);
+
+    std::tr1::shared_ptr<ModelB> b(new ModelB);
+
+    b->fly(airport);
+    ASSERT_EQ(b->getX(), 1);
+
+    std::tr1::shared_ptr<ModelDifferentFly> diff(new ModelDifferentFly);
+
+    diff->fly(airport);
+    ASSERT_EQ(diff->getX(), 2);
 }

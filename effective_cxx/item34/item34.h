@@ -20,6 +20,10 @@
 
 class Shape {
 public:
+    Shape() : objectID_(0) {
+
+    }
+
     // interface only
     virtual void draw() const = 0;
 
@@ -28,6 +32,9 @@ public:
 
     // interface and a mandatory implementation
     int objectID() const;
+
+protected:
+    mutable int objectID_;
 };
 
 class Rectangle : public Shape {
@@ -52,11 +59,20 @@ class Airport {
 
 class Airplane {
 public:
-    virtual void fly(const Airport &dest);
+    Airplane() : x_(0) {
+    }
+
+    int getX() const {
+        return x_;
+    }
+
+    virtual void fly(const Airport &dest) = 0;
 
 protected:
     // non-virtual
     void defaultFly(const Airport &dest);
+
+    int x_;
 };
 
 class ModelA : public Airplane {

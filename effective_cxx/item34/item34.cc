@@ -20,13 +20,13 @@ void Shape::error(const std::string &msg) {
 }
 
 int Shape::objectID() const {
-   return 0; 
+   return objectID_; 
 }
 
 ////////////////////
 
 void Rectangle::draw() const {
-
+    objectID_ = 11;
 }
 
 void Rectangle::error(const std::string &msg) {
@@ -36,7 +36,7 @@ void Rectangle::error(const std::string &msg) {
 ////////////////////
 
 void Ellipse::draw() const {
-
+    objectID_ = 22;
 }
 
 void Ellipse::error(const std::string &msg) {
@@ -46,7 +46,7 @@ void Ellipse::error(const std::string &msg) {
 ////////////////////
 
 void Airplane::defaultFly(const Airport &dest) {
-
+    x_ = 1;
 }
 
 ////////////////////
@@ -64,5 +64,5 @@ void ModelB::fly(const Airport &dest) {
 ////////////////////
 
 void ModelDifferentFly::fly(const Airport &dest) {
-
+    x_ = 2;
 }
