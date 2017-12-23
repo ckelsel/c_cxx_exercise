@@ -12,7 +12,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 #ifndef __ITEM32_H__
 #define __ITEM32_H__
 // Public inheritance means "is-a."
