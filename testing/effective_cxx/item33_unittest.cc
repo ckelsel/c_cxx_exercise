@@ -21,13 +21,16 @@ TEST(EFFECTIVE_CXX, ITEM33) {
     std::tr1::shared_ptr<DerivedOverrideBase> derived(new DerivedOverrideBase);    
 
     derived->VirtualFunction1();
+    ASSERT_EQ(derived->getX(), 11);
     // error, override
     //derived->VirtualFunction1(1);
 
     derived->VirtualFunction2();
+    ASSERT_EQ(derived->getX(), 2);
 
     
     derived->Function3();
+    ASSERT_EQ(derived->getX(), 33);
     // error, override
     //derived->Function3(1);
 
@@ -38,13 +41,21 @@ TEST(EFFECTIVE_CXX, ITEM33_2) {
     std::tr1::shared_ptr<DerivedCallBase> derived(new DerivedCallBase);
 
     derived->VirtualFunction1();
+    ASSERT_EQ(derived->getX(), 111);
+
     derived->VirtualFunction1(1);
+    ASSERT_EQ(derived->getX(), 1);
 
     derived->VirtualFunction2();
+    ASSERT_EQ(derived->getX(), 2);
 
     
     derived->Function3();
+    ASSERT_EQ(derived->getX(), 333);
+
     derived->Function3(1);
+    ASSERT_EQ(derived->getX(), 1);
 
     derived->Function4();
+    ASSERT_EQ(derived->getX(), 444);
 }

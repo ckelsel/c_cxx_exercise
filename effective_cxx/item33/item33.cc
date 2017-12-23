@@ -28,45 +28,46 @@ void Base::VirtualFunction1() {
 }
 
 void Base::VirtualFunction1(int x) {
-
+    x_ = x;
 }
 
 void Base::VirtualFunction2() {
-
+    x_ = 2;
 }
 
 void Base::Function3() {
-    
+    x_ = 3;
 }
 void Base::Function3(int x) {
+    x_ = x;
     
 }
 
 ///////////////////
 
 void DerivedOverrideBase::VirtualFunction1() {
-
+    x_ = 11;
 }
 
 void DerivedOverrideBase::Function3() {
-    
+    x_ = 33;
 }
 
 void DerivedOverrideBase::Function4() {
-    
+    x_ = 44; 
 }
 
 ///////////////
 
 
 void DerivedCallBase::VirtualFunction1() {
-
+    x_ = 111;
 }
 
 void DerivedCallBase::Function3() {
-    
+    x_ = 333;
 }
 
 void DerivedCallBase::Function4() {
-    
+    x_ = 444;
 }

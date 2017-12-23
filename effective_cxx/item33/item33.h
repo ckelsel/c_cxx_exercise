@@ -18,6 +18,9 @@
 
 class Base {
 public:
+    Base() : x_(0) {
+    }
+
     virtual void VirtualFunction1() = 0;
     virtual void VirtualFunction1(int x);
 
@@ -30,14 +33,22 @@ public:
     void Function3();
     void Function3(int x);
 
-private:
+    int getX() const {
+        return x_;
+    }
+
+protected:
     int x_;
 };
 
 class DerivedOverrideBase : public Base {
 public:
+    // hide virtual void VirtualFunction1() = 0;
+    // hide virtual void VirtualFunction1(int x);
     virtual void VirtualFunction1();
 
+    // hide void Function3();
+    // hide void Function3(int x);
     void Function3();
 
     void Function4();
@@ -49,8 +60,10 @@ public:
     using Base::VirtualFunction1;
     using Base::Function3;
 
+    // hide virtual void VirtualFunction1() = 0;
     virtual void VirtualFunction1();
 
+    // hide void Function3();
     void Function3();
 
     void Function4();
