@@ -34,6 +34,7 @@ public:
     int objectID() const;
 
 protected:
+    // draw() is const member function
     mutable int objectID_;
 };
 
