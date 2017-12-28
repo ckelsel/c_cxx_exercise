@@ -13,11 +13,17 @@ set(TEST_SRC_FILES ${TEST_SRC_FILES} tree_unittest.cc)
 set(TEST_SRC_FILES ${TEST_SRC_FILES} avltree_unittest.cc)
 
 file(GLOB TEST_SRC_FILES ${TEST_SRC_FILES} effective_cxx/*.cc)
+file(GLOB TEST_SRC_FILES ${TEST_SRC_FILES} effective_modern_cxx/*.cc)
 
 add_executable(${PROJECT_TEST_NAME} ${TEST_SRC_FILES})
 add_dependencies(${PROJECT_TEST_NAME} googletest)
-target_link_libraries(${PROJECT_TEST_NAME} ${PROJECT_LIB_POINTER}
-    ${PROJECT_LIB_LIST} ${PROJECT_LIB_EFFECTIVE} ${PROJECT_LIB_TREE} ${EXT_LIBS})
+target_link_libraries(${PROJECT_TEST_NAME} 
+    ${PROJECT_LIB_POINTER}
+    ${PROJECT_LIB_LIST}
+    ${PROJECT_LIB_EFFECTIVE}
+    ${PROJECT_LIB_EFFECTIVE_MODERN}
+    ${PROJECT_LIB_TREE}
+    ${EXT_LIBS})
 
 if(NOT WIN32)
     target_link_libraries(${PROJECT_TEST_NAME}

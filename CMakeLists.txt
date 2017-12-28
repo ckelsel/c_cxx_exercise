@@ -34,6 +34,7 @@ set(COMMON_INCLUDES ${PROJECT_SOURCE_DIR}/pointer/src)
 set(COMMON_INCLUDES ${COMMON_INCLUDES} ${PROJECT_SOURCE_DIR}/list/src)
 set(COMMON_INCLUDES ${COMMON_INCLUDES} ${PROJECT_SOURCE_DIR}/tree/src)
 set(COMMON_INCLUDES ${COMMON_INCLUDES} ${PROJECT_SOURCE_DIR}/effective_cxx)
+set(COMMON_INCLUDES ${COMMON_INCLUDES} ${PROJECT_SOURCE_DIR}/effective_modern_cxx)
 set(EXT_PROJECTS_DIR ${PROJECT_SOURCE_DIR}/ext)
 
 message(${COMMON_INCLUDES})
@@ -51,9 +52,11 @@ add_subdirectory(${PROJECT_SOURCE_DIR}/list)
 set(PROJECT_LIB_TREE ${PROJECT_NAME_STR}_tree)
 add_subdirectory(${PROJECT_SOURCE_DIR}/tree)
 
-set(PROJECT_LIB_EFFECTIVE ${PROJECT_NAME_STR}_effective)
+set(PROJECT_LIB_EFFECTIVE ${PROJECT_NAME_STR}_effective_cxx)
 add_subdirectory(${PROJECT_SOURCE_DIR}/effective_cxx)
 
+set(PROJECT_LIB_EFFECTIVE_MODERN ${PROJECT_NAME_STR}_effective_modern_cxx)
+add_subdirectory(${PROJECT_SOURCE_DIR}/effective_modern_cxx)
 
 add_subdirectory(${PROJECT_SOURCE_DIR}/project2)
 

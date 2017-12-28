@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0)
-project (${PROJECT_LIB_EFFECTIVE})
+project (${PROJECT_LIB_EFFECTIVE_MODERN})
  
 set (PROJECT_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/include)
 set (PROJECT_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR})
@@ -9,6 +9,9 @@ file(GLOB_RECURSE SRCS *.cc)
 include_directories("${PROJECT_BINARY_DIR}")
 include_directories("${PROJECT_INCLUDE_DIR}")
  
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 add_library(${PROJECT_NAME} STATIC ${SRCS})
 
 install (TARGETS ${PROJECT_NAME} DESTINATION bin)
