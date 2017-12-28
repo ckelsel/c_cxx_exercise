@@ -16,5 +16,19 @@
 #include "gtest/gtest.h"
 #include "item3_1_10/item3_1_10.h"
 
-TEST(EFFECTIVE_CXX, ITEM3_1_10) {
+TEST(EFFECTIVE_MODERN_CXX, ITEM3_1_10) {
+    std::vector<int> v1 = {1, 2, 3};
+    func3(v1);
+    ASSERT_EQ(v1[0], -1);
+    ASSERT_EQ(v1[1], -2);
+    ASSERT_EQ(v1[2], -3);
+
+    std::vector<double> v2 = {0.1};
+    func4(v2);
+    ASSERT_GT(v2[0], 0.09);
+    ASSERT_LE(v2[0], 0.11);
+
+    func5(v2, 0.01);
+    ASSERT_GT(v2[0], 0.09);
+    ASSERT_LE(v2[0], 0.11);
 }

@@ -24,8 +24,8 @@
 
 namespace {
     struct f{
-        void operator()(int) {
-
+        void operator()(int &v) {
+           v = -v; 
         }
     };
 };
@@ -37,7 +37,7 @@ void func(std::vector<int> &v) {
 
 // Cxx11 Lambda
 void func3(std::vector<int> &v) {
-    std::for_each(v.begin(), v.end(), [](int) {});
+    std::for_each(v.begin(), v.end(), [](int &v) { v = -v; });
 }
 
 // Cxx11 Lambda
