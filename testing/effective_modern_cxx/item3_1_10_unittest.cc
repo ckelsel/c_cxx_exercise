@@ -32,3 +32,19 @@ TEST(EFFECTIVE_MODERN_CXX, ITEM3_1_10) {
     ASSERT_GT(v2[0], 0.09);
     ASSERT_LE(v2[0], 0.11);
 }
+
+TEST(EFFECTIVE_MODERN_CXX, ITEM3_1_10_func) {
+    int x = 0;
+    int y = 11;
+    auto func = [x, &y] {
+        ++y;
+    };
+
+    func();
+    ASSERT_EQ(x, 0);
+    ASSERT_EQ(y, 12);
+    
+    func();
+    ASSERT_EQ(x, 0);
+    ASSERT_EQ(y, 13);
+}

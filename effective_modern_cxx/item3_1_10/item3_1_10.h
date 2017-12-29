@@ -16,6 +16,9 @@
 #define __ITEM_3_1_10_H__
 //https://stackoverflow.com/questions/7627098/what-is-a-lambda-expression-in-c11
 
+//Lambda Expressions in C++
+//https://msdn.microsoft.com/en-us/library/dd293608.aspx
+
 // 3.1.10 Lambdas
 
 // Cxx98
