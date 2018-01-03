@@ -11,6 +11,7 @@ set(TEST_SRC_FILES ${TEST_SRC_FILES} pointer_unittest.cc)
 set(TEST_SRC_FILES ${TEST_SRC_FILES} list_unittest.cc)
 set(TEST_SRC_FILES ${TEST_SRC_FILES} tree_unittest.cc)
 set(TEST_SRC_FILES ${TEST_SRC_FILES} avltree_unittest.cc)
+set(TEST_SRC_FILES ${TEST_SRC_FILES} dispatcher_table_cxx11_unittest.cc)
 
 file(GLOB TEST_SRC_FILES ${TEST_SRC_FILES} effective_cxx/*.cc)
 file(GLOB TEST_SRC_FILES ${TEST_SRC_FILES} effective_modern_cxx/*.cc)
