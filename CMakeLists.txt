@@ -35,6 +35,7 @@ set(COMMON_INCLUDES ${COMMON_INCLUDES} ${PROJECT_SOURCE_DIR}/list/src)
 set(COMMON_INCLUDES ${COMMON_INCLUDES} ${PROJECT_SOURCE_DIR}/tree/src)
 set(COMMON_INCLUDES ${COMMON_INCLUDES} ${PROJECT_SOURCE_DIR}/effective_cxx)
 set(COMMON_INCLUDES ${COMMON_INCLUDES} ${PROJECT_SOURCE_DIR}/effective_modern_cxx)
+set(COMMON_INCLUDES ${COMMON_INCLUDES} ${PROJECT_SOURCE_DIR}/algorithm)
 set(EXT_PROJECTS_DIR ${PROJECT_SOURCE_DIR}/ext)
 
 message(${COMMON_INCLUDES})
@@ -57,6 +58,9 @@ add_subdirectory(${PROJECT_SOURCE_DIR}/effective_cxx)
 
 set(PROJECT_LIB_EFFECTIVE_MODERN ${PROJECT_NAME_STR}_effective_modern_cxx)
 add_subdirectory(${PROJECT_SOURCE_DIR}/effective_modern_cxx)
+
+set(PROJECT_LIB_ALGORITHM ${PROJECT_NAME_STR}_algorithm)
+add_subdirectory(${PROJECT_SOURCE_DIR}/algorithm)
 
 add_subdirectory(${PROJECT_SOURCE_DIR}/project2)
 
