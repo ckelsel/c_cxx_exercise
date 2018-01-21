@@ -14,6 +14,11 @@
 #ifndef __S513_H__
 #define __S513_H__
 
+/// 如果一个字符串可以由某个长度为k的字符串重复多次得到，则该串以k为周期
+/// 例如，ababab以2为最小周期
+/// 输入一个字符串，求最小周期
+/// 输入： ababab
+/// 输出:  2
 int GetMinCycle(const char *data);
 
 #endif // __S513_H__
