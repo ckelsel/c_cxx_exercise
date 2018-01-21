@@ -15,7 +15,11 @@
 #define __POJ1163_H__
 
 
-int MaxSum(int r, int j);
+int MaxSum(int i, int j);
+
+int MaxSum_2(int i, int j);
+
+int MaxSum_3(int i, int j);
 
 void ReadData(const char *filename);
 

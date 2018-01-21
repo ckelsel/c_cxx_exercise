@@ -13,8 +13,10 @@
  */
 #include <iostream>
 #include <fstream>
+#include <string>
 #include <algorithm>
 #include "poj1163.h"
+#include "utils/utils.h"
 
 #if 0
 5
@@ -32,24 +34,60 @@
 #define LINE 101
 int data[LINE][LINE];
 int n;
+int maxsum[LINE][LINE];
 
-int MaxSum(int r, int j) {
-    if (r == n) {
-        return data[r][j];
+int MaxSum(int i, int j) {
+    if (i == n) {
+        return data[i][j];
     } else {
-        return std::max(MaxSum(r + 1, j), MaxSum(r + 1, j + 1)) + data[r][j];
+        return std::max(MaxSum(i + 1, j), MaxSum(i + 1, j + 1)) + data[i][j];
     }
 }
+
+int MaxSum_2(int i, int j) {
+    if (maxsum[i][j] != -1) {
+        return maxsum[i][j];
+    }
+
+    if (i == n) {
+        maxsum[i][j] = data[i][j];
+    } else {
+        maxsum[i][j] = std::max(MaxSum_2(i + 1, j), MaxSum_2(i + 1, j + 1)) + data[i][j];
+    }
+
+    return maxsum[i][j];
+}
+
+int MaxSum_3(int i, int j) {
+    int sum[LINE][LINE];
+    memset(sum, -1, sizeof(sum));
+
+    // last line
+    for (int i = 0; i <= n; i++) {
+        sum[n][i] = data[n][i];
+    }
+
+    // from second last
+    for (int i = n - 1; i >= 1; i--) {
+        for (int j = 1; j <= i; j++) {
+            sum[i][j] = std::max(sum[i+1][j], sum[i+1][j+1]) + data[i][j];
+        }
+    }
+
+    return sum[i][j];
+}
+
 
 void ReadData(const char *filename) {
     std::ifstream file;
 
-    file.open(filename);
+    file.open(GetFileOfCurrentDir(filename));
     if (file) {
         file >> n;
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= i; j++) {
                 file >> data[i][j];
+                maxsum[i][j] = -1;
             }
         }
         file.close();

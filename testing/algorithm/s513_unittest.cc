@@ -14,16 +14,10 @@
  */
 
 #include "gtest/gtest.h"
-#include "dynamic_planning/poj1163.h"
+#include "simple/s513.h"
 
-
-TEST(ALGORITHM, POJ1163) {
-    ReadData("poj1163.in");
-
-    //MaxSum(1,1);
-    int sum = MaxSum_2(1, 1);
-    EXPECT_EQ(30, sum);
-
-    sum = MaxSum_3(1, 1);
-    EXPECT_EQ(30, sum);
+TEST(S513, test) {
+    ASSERT_EQ(1, GetMinCycle("aaa"));
+    ASSERT_EQ(2, GetMinCycle("ababababababab"));
+    ASSERT_EQ(3, GetMinCycle("abdabdabd"));
 }

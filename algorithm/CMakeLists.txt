@@ -8,7 +8,10 @@ file(GLOB_RECURSE SRCS *.cc)
  
 include_directories("${PROJECT_BINARY_DIR}")
 include_directories("${PROJECT_INCLUDE_DIR}")
+include_directories("./")
  
 add_library(${PROJECT_NAME} STATIC ${SRCS})
 
 install (TARGETS ${PROJECT_NAME} DESTINATION bin)
+install (DIRECTORY data/ DESTINATION bin
+         PATTERN "data/*.in")
