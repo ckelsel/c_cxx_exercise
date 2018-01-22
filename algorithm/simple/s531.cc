@@ -116,8 +116,9 @@ Result ToResult(int value) {
     return rv;
 }
 
-int flag[9999] = {0};
+typedef std::map<int, bool> Flag;
 void Answer(Result &in, Result &result) {
+    Flag flag;
     result.push_back(ToInt(in));
     flag[ToInt(in)] = true;
 
@@ -133,7 +134,7 @@ void Answer(Result &in, Result &result) {
 
         int outvalue = ToInt(out);
         result.push_back(outvalue);
-        if (flag[outvalue]) {
+        if (flag.find(outvalue) != flag.end()) {
             break;
         }
 
