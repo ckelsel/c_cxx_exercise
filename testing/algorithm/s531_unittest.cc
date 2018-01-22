@@ -71,3 +71,22 @@ TEST(S531, test_1234) {
         ASSERT_EQ(correct[i], result[i]);
     }
 }
+
+
+TEST(S531, test_86526432) {
+    S531::Result result;
+    S531::Result in = {8, 6, 5, 2, 6, 4, 3, 2};
+
+    S531::Result correct;
+    correct.push_back(86526432);
+    correct.push_back(64308654);
+    correct.push_back(83208762);
+    correct.push_back(86526432);
+
+    S531::Answer(in, result);
+
+    ASSERT_EQ(correct.size(), result.size());
+    for (int i = 0; i < correct.size(); i++) {
+        ASSERT_EQ(correct[i], result[i]);
+    }
+}
