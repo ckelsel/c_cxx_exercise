@@ -18,4 +18,6 @@
 
 std::wstring GetFileOfCurrentDir(const char *filename);
 
+bool CompareOutput(const char *file1, const char *file2);
+
 #endif // __UTILS_H__

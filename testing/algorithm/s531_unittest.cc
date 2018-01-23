@@ -16,7 +16,7 @@
 #include "gtest/gtest.h"
 #include "simple/s531.h"
 
-TEST(S531, test_bubblesort) {
+TEST(ALGORITHM, S531_test_bubblesort) {
     #define N 5
     int a[N] = {2, 4, 5, 8, 1};
 
@@ -36,7 +36,7 @@ TEST(S531, test_bubblesort) {
 }
 
 
-TEST(S531, test_toxxx) {
+TEST(ALGORITHM, S531_test_toxxx) {
     int value = 1234;
 
     S531::Result result = S531::ToResult(value);
@@ -49,7 +49,7 @@ TEST(S531, test_toxxx) {
     ASSERT_EQ(value, value2);
 }
 
-TEST(S531, test_1234) {
+TEST(ALGORITHM, S531_test_1234) {
     S531::Result result;
     S531::Result in;
     in.push_back(1);
@@ -73,7 +73,7 @@ TEST(S531, test_1234) {
 }
 
 
-TEST(S531, test_86526432) {
+TEST(ALGORITHM, S531_test_86526432) {
     S531::Result result;
     S531::Result in = {8, 6, 5, 2, 6, 4, 3, 2};
 

@@ -14,7 +14,11 @@
  */
 
 #include "gtest/gtest.h"
+#include "utils/utils.h"
 #include "simple/t532.h"
 
-TEST(T532, test) {
+TEST(ALGORITHM, T532_test) {
+    T532::ReadData("t532.in");
+    T532::Answer("t532.calc");
+    ASSERT_TRUE(CompareOutput("t532.ok", "t532.calc"));
 }

@@ -14,3 +14,13 @@
 #include "t532.h"
 #include <map>
 #include <algorithm>
+
+namespace T532 {
+void ReadData(const char *file) {
+
+}
+
+void Answer(const char *file) {
+    
+}
+}

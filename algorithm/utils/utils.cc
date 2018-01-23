@@ -14,6 +14,9 @@
 #include <windows.h>
 #include "utils.h"
 #include <string>
+#include <fstream>
+#include <iostream>
+#include <cassert>
 
 std::wstring StringToWString(std::string &s) {
     std::wstring tmp(s.length(), L' ');
@@ -33,4 +36,37 @@ std::wstring GetFileOfCurrentDir(const char *filename) {
     file.append(StringToWString(std::string(filename)));
 
     return file;
+}
+
+#define BUFFER_LENGTH 256
+bool CompareOutput(const char *file1, const char *file2) {
+    std::wstring f1 = GetFileOfCurrentDir(file1);
+    std::wstring f2 = GetFileOfCurrentDir(file2);
+
+    std::ifstream if1(f1, std::ios::binary);
+    if (!if1.is_open()) {
+        return false;
+    }
+
+    std::ifstream if2(f2, std::ios::binary);
+    if (!if2.is_open()) {
+        if1.close();
+        return false;
+    }
+
+    char buf1[BUFFER_LENGTH] = {0};
+    char buf2[BUFFER_LENGTH] = {0};
+
+    if1.read(buf1, BUFFER_LENGTH);
+    if2.read(buf2, BUFFER_LENGTH);
+
+    if (memcmp(buf1, buf2, BUFFER_LENGTH) != 0) {
+        if1.close();
+        if2.close();
+        return false;
+    }
+
+    if1.close();
+    if2.close();
+    return true;
 }

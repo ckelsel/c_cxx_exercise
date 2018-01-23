@@ -16,7 +16,7 @@
 #include "gtest/gtest.h"
 #include "simple/s513.h"
 
-TEST(S513, test) {
+TEST(ALGORITHM, S513) {
     ASSERT_EQ(1, GetMinCycle("aaa"));
     ASSERT_EQ(2, GetMinCycle("ababababababab"));
     ASSERT_EQ(3, GetMinCycle("abdabdabd"));

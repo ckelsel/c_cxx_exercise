@@ -14,4 +14,4 @@ add_library(${PROJECT_NAME} STATIC ${SRCS})
 
 install (TARGETS ${PROJECT_NAME} DESTINATION bin)
 install (DIRECTORY data/ DESTINATION bin
-         PATTERN "data/*.in")
+         PATTERN "data/*.*")

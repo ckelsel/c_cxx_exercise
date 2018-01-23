@@ -17,7 +17,7 @@
 #include "simple/s522.h"
 
 
-TEST(S522, AnswerToString) {
+TEST(ALGORITHM, S522_AnswerToString) {
     S522::Result result;
 
     result.push_back(1);
@@ -29,7 +29,7 @@ TEST(S522, AnswerToString) {
     ASSERT_STREQ("9021", S522::AnswerToString(result).c_str());
 }
 
-TEST(S522, test_3) {
+TEST(ALGORITHM, S522_test_3) {
     S522::Result result;
 
     S522::Answer(3, result);
@@ -38,7 +38,7 @@ TEST(S522, test_3) {
     ASSERT_STREQ(correct_3.c_str(), ans.c_str());
 }
 
-TEST(S522, test_30) {
+TEST(ALGORITHM, S522_test_30) {
     S522::Result result;
 
     S522::Answer(30, result);

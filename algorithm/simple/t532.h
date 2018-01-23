@@ -18,7 +18,11 @@
 #include <vector>
 
 namespace T532 {
-    void Answer();
+    /// file, file to input data
+    void ReadData(const char *file);
+
+    /// file, file to output answer
+    void Answer(const char *file);
 }
 
 #endif // __T532_H__

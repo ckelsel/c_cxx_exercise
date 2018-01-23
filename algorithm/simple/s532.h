@@ -25,7 +25,8 @@
 #include <vector>
 
 namespace S532 {
-    void Answer();
+    void ReadData(const char *file);
+    void Answer(const char *file);
 }
 
 #endif // __S532_H__

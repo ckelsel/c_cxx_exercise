@@ -14,3 +14,19 @@
 #include "s532.h"
 #include <map>
 #include <algorithm>
+#include <vector>
+#include <string>
+
+namespace S532 {
+
+std::vector<std::string> data;
+
+void ReadData(const char *file) {
+
+}
+
+void Answer(const char *file) {
+
+}
+
+}
