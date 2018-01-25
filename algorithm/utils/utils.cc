@@ -24,7 +24,13 @@ std::wstring StringToWString(std::string &s) {
     return tmp;
 }
 
-std::wstring GetFileOfCurrentDir(const char *filename) {
+std::string WStringToString(std::wstring &s) {
+    std::string tmp(s.length(), ' ');
+    std::copy(s.begin(), s.end(), tmp.begin());
+    return tmp;
+}
+
+std::string GetFileOfCurrentDir(const char *filename) {
     wchar_t module_name[MAX_PATH];
     GetModuleFileName(NULL, module_name, MAX_PATH);
     std::wstring file(module_name);
@@ -35,13 +41,30 @@ std::wstring GetFileOfCurrentDir(const char *filename) {
     }
     file.append(StringToWString(std::string(filename)));
 
-    return file;
+    return WStringToString(file);
+}
+
+
+std::string GetFileContent(const char *file) {
+    std::string filepath = GetFileOfCurrentDir(file);
+    std::fstream in(filepath, std::ios::binary | std::ios::ate);
+    if (in.is_open()) {
+        auto size = in.tellg();
+        std::string str(size, '\0');
+        in.seekg(0);
+        in.read(&str[0], size);
+        in.close();
+
+        return str;
+    }
+
+    return "";
 }
 
 #define BUFFER_LENGTH 256
 bool CompareOutput(const char *file1, const char *file2) {
-    std::wstring f1 = GetFileOfCurrentDir(file1);
-    std::wstring f2 = GetFileOfCurrentDir(file2);
+    std::string f1 = GetFileOfCurrentDir(file1);
+    std::string f2 = GetFileOfCurrentDir(file2);
 
     std::ifstream if1(f1, std::ios::binary);
     if (!if1.is_open()) {

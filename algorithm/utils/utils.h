@@ -16,8 +16,12 @@
 #define __UTILS_H__
 #include <string>
 
-std::wstring GetFileOfCurrentDir(const char *filename);
+
+std::string GetFileOfCurrentDir(const char *filename);
 
 bool CompareOutput(const char *file1, const char *file2);
+
+
+std::string GetFileContent(const char *file);
 
 #endif // __UTILS_H__
