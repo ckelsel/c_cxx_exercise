@@ -36,10 +36,14 @@ private:
 class Widget422UniquePtr {
 public:
     Widget422UniquePtr();
+
+    // key1
     ~Widget422UniquePtr();
 
+    // key2
     Widget422UniquePtr (const Widget422UniquePtr &rhs);
 
+    // key3
     Widget422UniquePtr& operator=(const Widget422UniquePtr &rhs);
 private:
     std::unique_ptr<Widget422Impl> impl_;
