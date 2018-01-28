@@ -2,7 +2,9 @@
 
 import argparse
 
+import pdb
 import sys
+import os
 
 algorithm_template_cc = "algorithm/simple/t532.cc"
 algorithm_template_h = "algorithm/simple/t532.h"
@@ -11,6 +13,8 @@ algorithm_template_unittest = "testing/algorithm/t532_unittest.cc"
 algorithm_location = "algorithm/simple/"
 algorithm_location_unittest = "testing/algorithm/"
 algorithm_text = "t532"
+
+#-------------
 
 text = "t532"
 location = "algorithm/simple/"
@@ -50,9 +54,16 @@ def select_algorithm():
     template_unittest = algorithm_template_unittest
 
 def select_cxx():
+    global text
+    global location
+    global location_unittest
+
+    global template_cc
+    global template_h
+    global template_unittest
     text = "template4_18"
-    location = "effective_modern_cxx/template4_18"
-    location_unittest = "testing/effective_modern_cxx"
+    location = "effective_modern_cxx/template4_18/"
+    location_unittest = "testing/effective_modern_cxx/"
 
     template_cc = location + text + ".cc"
     template_h = location + text + ".h"
@@ -63,6 +74,8 @@ def select_cxx():
 #cxx
 #python copy_template.py s123 -t 1
 if __name__ == "__main__":
+    file = sys.argv[1]
+
     parser = argparse.ArgumentParser()
     parser.add_argument('file', metavar='N', type=str, nargs='+',
                         help='file')
@@ -74,8 +87,11 @@ if __name__ == "__main__":
         select_algorithm()
     elif args.type == 1:
         select_cxx()
-    
-    file = sys.argv[1]
+        location = location.replace(text, file)
+        pdb.set_trace()   
+        if not os.path.exists(location):
+            os.makedirs(location)
+    pdb.set_trace()   
     write_file_cc(file)
     write_file_h(file)
     write_file_unittest(file)
