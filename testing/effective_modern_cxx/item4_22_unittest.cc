@@ -1,4 +1,5 @@
- /*
+/* Copyright 2017 kunming.xie
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,10 +13,17 @@
  * limitations under the License.
  */
 
-#include "template4_18.h"
+#include "gtest/gtest.h"
+#include "item4_22/item4_22.h"
+using namespace item4_22;
 
-namespace template4_18 {
+TEST(EFFECTIVE_MODERN_CXX, ITEM4_22) {
+    Widget422 w;
 
+    Widget422UniquePtr w2;
 
+    // must implement copy ctor
+    auto w3(std::move(w2));
 
+    w2 = std::move(w3);
 }

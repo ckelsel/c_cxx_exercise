@@ -15,6 +15,7 @@
 
 #include "gtest/gtest.h"
 #include "template4_18/template4_18.h"
+using namespace template4_18;
 
 TEST(EFFECTIVE_MODERN_CXX, TEMPLATE4_18) {
 }
