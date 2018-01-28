@@ -14,6 +14,9 @@
 
 #ifndef __EFFECT_MODERN_CXX_TEMPLATE4_18_H__
 #define __EFFECT_MODERN_CXX_TEMPLATE4_18_H__
-// Item 18: Use std::unique_ptrfor exclusive-ownership resource management.
+//
 
+namespace template4_18 {
+
+}
 #endif // __EFFECT_MODERN_CXX_TEMPLATE4_18_H__
