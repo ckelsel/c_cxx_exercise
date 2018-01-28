@@ -35,6 +35,7 @@ set(COMMON_INCLUDES ${COMMON_INCLUDES} ${PROJECT_SOURCE_DIR}/list/src)
 set(COMMON_INCLUDES ${COMMON_INCLUDES} ${PROJECT_SOURCE_DIR}/tree/src)
 set(COMMON_INCLUDES ${COMMON_INCLUDES} ${PROJECT_SOURCE_DIR}/effective_cxx)
 set(COMMON_INCLUDES ${COMMON_INCLUDES} ${PROJECT_SOURCE_DIR}/effective_modern_cxx)
+set(COMMON_INCLUDES ${COMMON_INCLUDES} ${PROJECT_SOURCE_DIR}/the_cxx_stl_a_tutorial_and_reference_2012)
 set(COMMON_INCLUDES ${COMMON_INCLUDES} ${PROJECT_SOURCE_DIR}/algorithm)
 set(EXT_PROJECTS_DIR ${PROJECT_SOURCE_DIR}/ext)
 
@@ -58,6 +59,10 @@ add_subdirectory(${PROJECT_SOURCE_DIR}/effective_cxx)
 
 set(PROJECT_LIB_EFFECTIVE_MODERN ${PROJECT_NAME_STR}_effective_modern_cxx)
 add_subdirectory(${PROJECT_SOURCE_DIR}/effective_modern_cxx)
+
+set(PROJECT_LIB_STL ${PROJECT_NAME_STR}_the_cxx_stl_a_tutorial_and_reference_2012)
+add_subdirectory(${PROJECT_SOURCE_DIR}/the_cxx_stl_a_tutorial_and_reference_2012)
+
 
 set(PROJECT_LIB_ALGORITHM ${PROJECT_NAME_STR}_algorithm)
 add_subdirectory(${PROJECT_SOURCE_DIR}/algorithm)

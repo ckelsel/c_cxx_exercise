@@ -15,6 +15,7 @@ set(TEST_SRC_FILES ${TEST_SRC_FILES} dispatcher_table_cxx11_unittest.cc)
 
 file(GLOB TEST_SRC_FILES ${TEST_SRC_FILES} effective_cxx/*.cc)
 file(GLOB TEST_SRC_FILES ${TEST_SRC_FILES} effective_modern_cxx/*.cc)
+file(GLOB TEST_SRC_FILES ${TEST_SRC_FILES} the_cxx_stl_a_tutorial_and_reference_2012/*.cc)
 file(GLOB TEST_SRC_FILES ${TEST_SRC_FILES} algorithm/*.cc)
 
 add_executable(${PROJECT_TEST_NAME} ${TEST_SRC_FILES})
@@ -24,6 +25,7 @@ target_link_libraries(${PROJECT_TEST_NAME}
     ${PROJECT_LIB_LIST}
     ${PROJECT_LIB_EFFECTIVE}
     ${PROJECT_LIB_EFFECTIVE_MODERN}
+    ${PROJECT_LIB_STL}
     ${PROJECT_LIB_TREE}
     ${PROJECT_LIB_ALGORITHM}
     ${EXT_LIBS})
