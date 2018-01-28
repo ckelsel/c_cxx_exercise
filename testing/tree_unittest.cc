@@ -14,7 +14,7 @@
  */
 
 #include "gtest/gtest.h"
-#include "tree.h"
+#include "tree/tree.h"
 
 TEST(TREE, MakeEmpty)
 {

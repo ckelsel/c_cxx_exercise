@@ -14,7 +14,7 @@
  */
 
 #include "gtest/gtest.h"
-#include "pointer.h"
+#include "pointer/pointer.h"
 
 TEST(POINTER, ch)
 {

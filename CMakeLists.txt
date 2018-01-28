@@ -30,9 +30,7 @@ set(CMAKE_CXX_FLAGS ${COMMON_CXX_FLAGS})
 #-------------------
 # set common include folder for module
 #-------------------
-set(COMMON_INCLUDES ${PROJECT_SOURCE_DIR}/pointer/src)
-set(COMMON_INCLUDES ${COMMON_INCLUDES} ${PROJECT_SOURCE_DIR}/list/src)
-set(COMMON_INCLUDES ${COMMON_INCLUDES} ${PROJECT_SOURCE_DIR}/tree/src)
+set(COMMON_INCLUDES ${PROJECT_SOURCE_DIR}/data_struct)
 set(COMMON_INCLUDES ${COMMON_INCLUDES} ${PROJECT_SOURCE_DIR}/effective_cxx)
 set(COMMON_INCLUDES ${COMMON_INCLUDES} ${PROJECT_SOURCE_DIR}/effective_modern_cxx)
 set(COMMON_INCLUDES ${COMMON_INCLUDES} ${PROJECT_SOURCE_DIR}/the_cxx_stl_a_tutorial_and_reference_2012)
@@ -45,14 +43,9 @@ message(${COMMON_INCLUDES})
 # Module source
 #-------------------
 
-set(PROJECT_LIB_POINTER ${PROJECT_NAME_STR}_pointer)
-add_subdirectory(${PROJECT_SOURCE_DIR}/pointer)
 
-set(PROJECT_LIB_LIST ${PROJECT_NAME_STR}_list)
-add_subdirectory(${PROJECT_SOURCE_DIR}/list)
-
-set(PROJECT_LIB_TREE ${PROJECT_NAME_STR}_tree)
-add_subdirectory(${PROJECT_SOURCE_DIR}/tree)
+set(PROJECT_LIB_DS ${PROJECT_NAME_STR}_data_struct)
+add_subdirectory(${PROJECT_SOURCE_DIR}/data_struct)
 
 set(PROJECT_LIB_EFFECTIVE ${PROJECT_NAME_STR}_effective_cxx)
 add_subdirectory(${PROJECT_SOURCE_DIR}/effective_cxx)
@@ -67,7 +60,6 @@ add_subdirectory(${PROJECT_SOURCE_DIR}/the_cxx_stl_a_tutorial_and_reference_2012
 set(PROJECT_LIB_ALGORITHM ${PROJECT_NAME_STR}_algorithm)
 add_subdirectory(${PROJECT_SOURCE_DIR}/algorithm)
 
-add_subdirectory(${PROJECT_SOURCE_DIR}/project2)
 
 #-------------------
 # Test

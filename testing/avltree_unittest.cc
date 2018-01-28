@@ -14,7 +14,7 @@
  */
 
 #include "gtest/gtest.h"
-#include "avltree.h"
+#include "tree/avltree.h"
 
 TEST(AvlTree, Empty) {
     AvlTree T = AvlMakeEmpty(NULL);

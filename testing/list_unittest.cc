@@ -14,7 +14,7 @@
  */
 
 #include "gtest/gtest.h"
-#include "list.h"
+#include "list/list.h"
 
 
 struct LinkListNode {

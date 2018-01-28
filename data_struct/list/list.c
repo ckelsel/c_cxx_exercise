@@ -16,6 +16,7 @@
 #include <assert.h>
 #include "list.h"
 
+#if 0
 struct LinkListNode {
     ElementType Element;
     Position Next;
@@ -313,3 +314,4 @@ void Print(List L)
     }
     printf("\n");
 }
+#endif
