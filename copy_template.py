@@ -70,9 +70,9 @@ def select_cxx():
     template_unittest = location_unittest + text + "_unittest.cc"
 
 #algirithm
-#python copy_template.py s123 -t 0
+#python copy_template.py item4 -t 0
 #cxx
-#python copy_template.py s123 -t 1
+#python copy_template.py item4 -t 1
 if __name__ == "__main__":
     file = sys.argv[1]
 
@@ -88,10 +88,9 @@ if __name__ == "__main__":
     elif args.type == 1:
         select_cxx()
         location = location.replace(text, file)
-        pdb.set_trace()   
         if not os.path.exists(location):
             os.makedirs(location)
-    pdb.set_trace()   
+    #pdb.set_trace()   
     write_file_cc(file)
     write_file_h(file)
     write_file_unittest(file)
