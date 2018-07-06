@@ -44,7 +44,32 @@ def write_file_h(filename):
 def write_file_unittest(filename):
     write_file(location_unittest, template_unittest, ".cc", filename, "_unittest")
 
+def select_algorithm2():
+    global text
+    global location
+    global location_unittest
+
+    global template_cc
+    global template_h
+    global template_unittest
+
+    text = "t532"
+    location = "algorithm2/"
+    location_unittest = "testing/algorithm2/"
+
+    template_cc = algorithm_template_cc
+    template_h = algorithm_template_h
+    template_unittest = algorithm_template_unittest
+
 def select_algorithm():
+    global text
+    global location
+    global location_unittest
+
+    global template_cc
+    global template_h
+    global template_unittest
+
     text = algorithm_text
     location = algorithm_location
     location_unittest = algorithm_location_unittest 
@@ -61,6 +86,7 @@ def select_cxx():
     global template_cc
     global template_h
     global template_unittest
+
     text = "template4_18"
     location = "effective_modern_cxx/template4_18/"
     location_unittest = "testing/effective_modern_cxx/"
@@ -73,6 +99,8 @@ def select_cxx():
 #python copy_template.py item4 -t 0
 #cxx
 #python copy_template.py item4 -t 1
+#algirithm2
+#python copy_template.py item4 -t 2
 if __name__ == "__main__":
     file = sys.argv[1]
 
@@ -83,6 +111,7 @@ if __name__ == "__main__":
     parser.add_argument("-t", "--type", type=int, choices=[0, 1, 2],
                         help="template type")
     args = parser.parse_args()
+    #pdb.set_trace()   
     if args.type == 0:
         select_algorithm()
     elif args.type == 1:
@@ -90,7 +119,14 @@ if __name__ == "__main__":
         location = location.replace(text, file)
         if not os.path.exists(location):
             os.makedirs(location)
-    #pdb.set_trace()   
+    elif args.type == 2:
+        select_algorithm2()
+        location = location.replace(text, file)
+        if not os.path.exists(location):
+            os.makedirs(location)
+        location_unittest = location_unittest.replace(text, file)
+        if not os.path.exists(location_unittest):
+            os.makedirs(location_unittest)
     write_file_cc(file)
     write_file_h(file)
     write_file_unittest(file)
