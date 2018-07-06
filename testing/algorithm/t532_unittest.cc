@@ -20,5 +20,5 @@
 TEST(ALGORITHM, T532_test) {
     T532::ReadData("t532.in");
     T532::Answer("t532.calc");
-    EXPECT_TRUE(CompareOutput("t532.ok", "t532.calc"));
+    ASSERT_TRUE(CompareOutput("t532.ok", "t532.calc"));
 }

@@ -17,7 +17,7 @@
 #include "simple/s513.h"
 
 TEST(ALGORITHM, S513) {
-    EXPECT_EQ(1, GetMinCycle("aaa"));
-    EXPECT_EQ(2, GetMinCycle("ababababababab"));
-    EXPECT_EQ(3, GetMinCycle("abdabdabd"));
+    ASSERT_EQ(1, GetMinCycle("aaa"));
+    ASSERT_EQ(2, GetMinCycle("ababababababab"));
+    ASSERT_EQ(3, GetMinCycle("abdabdabd"));
 }
