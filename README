@@ -1,13 +1,6 @@
-Project Structure
+# Build
+build.bat
 
-    proejct1
-        include
-        src
-        CmakeLists.txt
-    proejct2
-        include
-        src
-        CmakeLists.txt
-    ....
-    include
-    CMakeLists.txt
+
+# quickly creat file
+python copy_template.py -t 2
