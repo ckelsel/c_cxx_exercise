@@ -12,7 +12,9 @@
  * limitations under the License.
  */
 #include "t532.h"
+#include "utils/utils.h"
 #include <map>
+#include <assert.h>
 #include <algorithm>
 
 namespace T532 {
@@ -21,6 +23,13 @@ void ReadData(const char *file) {
 }
 
 void Answer(const char *file) {
+    std::string filepath = GetFileOfCurrentDir(file);
+    FILE *fp = fopen(filepath.c_str(), "wb");
+    if (!fp) {
+        assert(false);
+        return;
+    }
     
+    fclose(fp);
 }
 }
