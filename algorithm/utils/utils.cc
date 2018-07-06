@@ -17,6 +17,7 @@
 #include <fstream>
 #include <iostream>
 #include <cassert>
+#include <regex>
 
 std::wstring StringToWString(std::string &s) {
     std::wstring tmp(s.length(), L' ');
@@ -82,6 +83,9 @@ bool CompareOutput(const char *file1, const char *file2) {
 
     if1.read(buf1, BUFFER_LENGTH);
     if2.read(buf2, BUFFER_LENGTH);
+
+    std::regex_replace(buf1, std::regex("\r\n"), "\r");
+    std::regex_replace(buf2, std::regex("\r\n"), "\r");
 
     if (memcmp(buf1, buf2, BUFFER_LENGTH) != 0) {
         if1.close();
