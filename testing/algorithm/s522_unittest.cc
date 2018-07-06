@@ -22,11 +22,11 @@ TEST(ALGORITHM, S522_AnswerToString) {
 
     result.push_back(1);
     result.push_back(2);
-    ASSERT_STREQ("21", S522::AnswerToString(result).c_str());
+    EXPECT_STREQ("21", S522::AnswerToString(result).c_str());
 
     result.push_back(0);
     result.push_back(9);
-    ASSERT_STREQ("9021", S522::AnswerToString(result).c_str());
+    EXPECT_STREQ("9021", S522::AnswerToString(result).c_str());
 }
 
 TEST(ALGORITHM, S522_test_3) {
@@ -35,7 +35,7 @@ TEST(ALGORITHM, S522_test_3) {
     S522::Answer(3, result);
     const std::string correct_3("6");
     std::string ans = S522::AnswerToString(result);
-    ASSERT_STREQ(correct_3.c_str(), ans.c_str());
+    EXPECT_STREQ(correct_3.c_str(), ans.c_str());
 }
 
 TEST(ALGORITHM, S522_test_30) {
@@ -44,5 +44,5 @@ TEST(ALGORITHM, S522_test_30) {
     S522::Answer(30, result);
     const std::string correct_30("265252859812191058636308480000000");
     std::string ans = S522::AnswerToString(result);
-    ASSERT_STREQ(correct_30.c_str(), ans.c_str());
+    EXPECT_STREQ(correct_30.c_str(), ans.c_str());
 }

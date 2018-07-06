@@ -85,8 +85,8 @@ TEST(ALGORITHM, S531_test_86526432) {
 
     S531::Answer(in, result);
 
-    ASSERT_EQ(correct.size(), result.size());
+    EXPECT_EQ(correct.size(), result.size());
     for (int i = 0; i < correct.size(); i++) {
-        ASSERT_EQ(correct[i], result[i]);
+        EXPECT_EQ(correct[i], result[i]);
     }
 }

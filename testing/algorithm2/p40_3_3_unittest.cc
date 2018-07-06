@@ -15,10 +15,10 @@
 
 #include "gtest/gtest.h"
 #include "utils/utils.h"
-#include "simple/t532.h"
+#include "simple/p40_3_3.h"
 
-TEST(ALGORITHM, T532_test) {
-    T532::ReadData("t532.in");
-    T532::Answer("t532.calc");
-    EXPECT_TRUE(CompareOutput("t532.ok", "t532.calc"));
+TEST(ALGORITHM, P40_3_3_test) {
+    P40_3_3::ReadData("p40_3_3.in");
+    P40_3_3::Answer("p40_3_3.calc");
+    ASSERT_TRUE(CompareOutput("p40_3_3.ok", "p40_3_3.calc"));
 }
