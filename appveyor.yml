@@ -39,7 +39,7 @@ before_build:
   - cmd: cmake -G "%CMAKE_GENERATOR_NAME%" -DCMAKE_BUILD_TYPE=%configuration% ..
 
 build_script:
-  - cmd: cmake --build .
+  - cmd: cmake --build . --target install
 
 test: on
 test_script:
