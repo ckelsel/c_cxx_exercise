@@ -49,6 +49,7 @@ std::string GetFileOfCurrentDir(const char *filename) {
 std::string GetFileContent(const char *file) {
     std::string filepath = GetFileOfCurrentDir(file);
     std::fstream in(filepath, std::ios::binary | std::ios::in | std::ios::ate);
+    assert(in.is_open());
     if (in.is_open()) {
         auto size = in.tellg();
         std::string str(size, '\0');

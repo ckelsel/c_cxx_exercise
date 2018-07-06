@@ -15,6 +15,7 @@
 #include <fstream>
 #include <string>
 #include <algorithm>
+#include <cassert>
 #include "poj1163.h"
 #include "utils/utils.h"
 
@@ -82,6 +83,7 @@ void ReadData(const char *filename) {
     std::ifstream file;
 
     file.open(GetFileOfCurrentDir(filename));
+    assert(file.is_open());
     if (file) {
         file >> n;
         for (int i = 1; i <= n; i++) {
