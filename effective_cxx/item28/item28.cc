@@ -20,3 +20,4 @@ const Rectangle boundingBox(const GUIObject &obj) {
     Rectangle rect(p1, p1);
     return rect;
 }
+

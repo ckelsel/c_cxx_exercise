@@ -18,7 +18,13 @@
 
 //Item 28: Avoid returning "handles" to object internals
 
-#include <memory>
+#include <cstddef> // for __GLIBCXX__
+
+#ifdef __GLIBCXX__
+#  include <tr1/memory>
+#else
+#  include <memory>
+#endif
 
 class Point {
 public:
@@ -44,7 +50,7 @@ private:
 };
 
 struct RectData {
-    RectData(Point lt, Point rb) 
+    RectData(Point lt, Point rb)
         : left_top(lt), right_bottom(rb) {
     }
     Point left_top;
@@ -75,8 +81,9 @@ private:
     std::tr1::shared_ptr<RectData> data_;
 };
 
-// return by value, after dtor, rightBotton() or leftTop() will 
+// return by value, after dtor, rightBotton() or leftTop() will
 // reference to undefined
 const Rectangle boundingBox(const GUIObject &obj);
 
 #endif // __ITEM28_H__
+
