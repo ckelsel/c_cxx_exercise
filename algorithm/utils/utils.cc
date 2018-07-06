@@ -64,36 +64,8 @@ std::string GetFileContent(const char *file) {
 
 #define BUFFER_LENGTH 256
 bool CompareOutput(const char *file1, const char *file2) {
-    std::string f1 = GetFileOfCurrentDir(file1);
-    std::string f2 = GetFileOfCurrentDir(file2);
+    std::string content1 = GetFileContent(file1);
+    std::string content2 = GetFileContent(file1);
 
-    std::ifstream if1(f1, std::ios::binary);
-    if (!if1.is_open()) {
-        return false;
-    }
-
-    std::ifstream if2(f2, std::ios::binary);
-    if (!if2.is_open()) {
-        if1.close();
-        return false;
-    }
-
-    char buf1[BUFFER_LENGTH] = {0};
-    char buf2[BUFFER_LENGTH] = {0};
-
-    if1.read(buf1, BUFFER_LENGTH);
-    if2.read(buf2, BUFFER_LENGTH);
-
-    std::regex_replace(buf1, std::regex("\r\n"), "\r");
-    std::regex_replace(buf2, std::regex("\r\n"), "\r");
-
-    if (memcmp(buf1, buf2, BUFFER_LENGTH) != 0) {
-        if1.close();
-        if2.close();
-        return false;
-    }
-
-    if1.close();
-    if2.close();
-    return true;
+    return content1 == content2;
 }
