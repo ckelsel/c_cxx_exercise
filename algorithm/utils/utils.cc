@@ -67,5 +67,14 @@ bool CompareOutput(const char *file1, const char *file2) {
     std::string content1 = GetFileContent(file1);
     std::string content2 = GetFileContent(file1);
 
+    std::regex_replace(content1, std::regex("\r\n"), "\r");
+    std::regex_replace(content2, std::regex("\r\n"), "\r");
+
+    std::cout << file1 << ":" << std::endl;
+    std::cout << content1 << std::endl;
+
+    std::cout << file2 << ":" << std::endl;
+    std::cout << content2 << std::endl;
+
     return content1 == content2;
 }
