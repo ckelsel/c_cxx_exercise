@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 #include "item26.h"
+#include <stdexcept>
 
 std::string encryptPasswordInsufficient(const std::string password) {
     std::string encrypted;
