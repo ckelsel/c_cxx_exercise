@@ -48,7 +48,7 @@ std::string GetFileOfCurrentDir(const char *filename) {
 
 std::string GetFileContent(const char *file) {
     std::string filepath = GetFileOfCurrentDir(file);
-    std::fstream in(filepath, std::ios::binary | std::ios::ate);
+    std::fstream in(filepath, std::ios::binary | std::ios::in | std::ios::ate);
     if (in.is_open()) {
         auto size = in.tellg();
         std::string str(size, '\0');
@@ -70,10 +70,10 @@ bool CompareOutput(const char *file1, const char *file2) {
     std::regex_replace(content1, std::regex("\r\n"), "\r");
     std::regex_replace(content2, std::regex("\r\n"), "\r");
 
-    std::cout << file1 << ":" << std::endl;
+    std::cout << "----" << std::endl << file1 << ":" << std::endl;
     std::cout << content1 << std::endl;
 
-    std::cout << file2 << ":" << std::endl;
+    std::cout << "----" << std::endl << file2 << ":" << std::endl;
     std::cout << content2 << std::endl;
 
     return content1 == content2;
