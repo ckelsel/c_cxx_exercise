@@ -12,6 +12,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+#ifdef _WIN32
 #include "gtest/gtest.h"
 #include "item29/item29.h"
 
@@ -93,3 +95,5 @@ TEST(EFFECTIVE_CXX, ITEM29_4) {
     ASSERT_NE(menu.GetImage(), (Image *)NULL);
     ASSERT_EQ(menu.GetChange(), 1);
 }
+
+#endif // _WIN32

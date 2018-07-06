@@ -12,6 +12,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+#ifdef _WIN32
+
 #include <istream>
 #include <algorithm>
 #include "item29.h"
@@ -57,3 +59,5 @@ void PrettyMenu_StrongExceptionSafe_RefactorMutex_SmartPointer::ChangeBackground
 
     std::swap(impl_, newimg);
 }
+
+#endif // _WIN32

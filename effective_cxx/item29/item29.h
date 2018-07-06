@@ -14,6 +14,9 @@
  */
 #ifndef __ITEM29_H__
 #define __ITEM29_H__
+
+#ifdef _WIN32
+
 //Item29: Strive for exception-safe code.
 
 #include <istream>
@@ -117,5 +120,7 @@ private:
     Mutex mutex_;
     std::tr1::shared_ptr<PrettyMenuImpl> impl_;
 };
+
+#endif // _WIN32
 
 #endif // __ITEM29_H__
