@@ -13,5 +13,4 @@ include_directories("./")
 add_library(${PROJECT_NAME} STATIC ${SRCS})
 
 install (TARGETS ${PROJECT_NAME} DESTINATION bin)
-install (DIRECTORY data/ DESTINATION bin
-         PATTERN "data/*.*")
+install (DIRECTORY data/ DESTINATION bin PATTERN "data/*.*")

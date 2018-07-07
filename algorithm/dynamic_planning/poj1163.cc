@@ -83,6 +83,7 @@ void ReadData(const char *filename) {
     std::ifstream file;
 
     file.open(GetFileOfCurrentDir(filename));
+    std::cout << GetFileOfCurrentDir(filename) << std::endl;
     assert(file.is_open());
     if (file) {
         file >> n;
