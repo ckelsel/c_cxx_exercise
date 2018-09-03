@@ -1,3 +1,5 @@
+.idea
+cmake-build*
 Temporary
 build
 build_
