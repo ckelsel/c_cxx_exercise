@@ -48,3 +48,69 @@ TEST(TREE, MakeEmpty)
     ASSERT_EQ(TreeRetrieve(TreeFindMax(T)), 49);
     ASSERT_EQ(TreeRetrieve(TreeFindMin(T)), 1);
 }
+
+TEST(TREE, Find)
+{
+    SearchTree T = NULL;
+    for (int i = 0, j = 0; i < 50; i++, j = (j + 7) % 50) {
+        T = TreeInsert(j, T);
+    }
+
+    for (int i = 0, j = 0; i < 50; i++, j = (j + 7) % 50) {
+        Position position = TreeFind(j, T);
+        ASSERT_EQ(TreeRetrieve(position), j);
+    }
+
+    TreeMakeEmpty(T);
+}
+
+TEST(TREE, FindMin)
+{
+    SearchTree T = NULL;
+    for (int i = 0, j = 0; i < 50; i++, j = (j + 7) % 50) {
+        T = TreeInsert(j, T);
+    }
+
+    Position position = TreeFindMin(T);
+    ASSERT_EQ(TreeRetrieve(position), 0);
+
+    TreeMakeEmpty(T);
+}
+
+TEST(TREE, FindMax)
+{
+    SearchTree T = NULL;
+    for (int i = 0, j = 0; i < 50; i++, j = (j + 7) % 50) {
+        T = TreeInsert(j, T);
+    }
+
+    Position position = TreeFindMax(T);
+    ASSERT_EQ(TreeRetrieve(position), 49);
+
+    TreeMakeEmpty(T);
+}
+
+TEST(TREE, Print)
+{
+    SearchTree T = NULL;
+    for (int i = 0, j = 0; i < 50; i++, j = (j + 7) % 50) {
+        T = TreeInsert(j, T);
+    }
+
+    TreePrint(T);
+
+    TreeMakeEmpty(T);
+}
+
+
+TEST(TREE, Depth)
+{
+    SearchTree T = NULL;
+    for (int i = 0, j = 0; i < 50; i++, j = (j + 7) % 50) {
+        T = TreeInsert(j, T);
+    }
+
+    ASSERT_EQ(TreeDepth(T), 15);
+
+    TreeMakeEmpty(T);
+}

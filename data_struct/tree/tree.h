@@ -44,6 +44,8 @@ ElementType TreeRetrieve(Position P);
 
 void TreePrint(SearchTree T);
 
+int TreeDepth(SearchTree T);
+
 #ifdef __cplusplus
 }
 #endif
