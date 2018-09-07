@@ -110,7 +110,7 @@ TEST(TREE, Depth)
         T = TreeInsert(j, T);
     }
 
-    ASSERT_EQ(TreeDepth(T), 15);
+    ASSERT_EQ(TreeDepth(T), 14);
 
     TreeMakeEmpty(T);
 }

@@ -158,7 +158,7 @@ void TreePrint(SearchTree T)
 int TreeDepth(SearchTree T)
 {
     if (T == NULL) {
-        return 1;
+        return 0;
     }
 
     return 1 + MAX(TreeDepth(T->Left), TreeDepth(T->Right));
