@@ -107,6 +107,7 @@ SearchTree TreeInsert(ElementType X, SearchTree T)
 // 情况1：叶子节点
 // 情况2：有一个节点
 // 情况3：有两个节点, 右子树的最小节点替换当前节点, 需要遍历两次
+// NOTE: 跟Find的流程一样
 SearchTree TreeDelete(ElementType X, SearchTree T)
 {
     if (T == NULL) {
