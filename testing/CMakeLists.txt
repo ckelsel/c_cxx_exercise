@@ -7,12 +7,8 @@ include_directories(${GTEST_INCLUDE_DIRS} ${COMMON_INCLUDES})
 set(PROJECT_TEST_NAME ${PROJECT_LIB_NAME}_test)
 
 set(TEST_SRC_FILES unittest.cc)
-set(TEST_SRC_FILES ${TEST_SRC_FILES} pointer_unittest.cc)
-set(TEST_SRC_FILES ${TEST_SRC_FILES} list_unittest.cc)
-set(TEST_SRC_FILES ${TEST_SRC_FILES} tree_unittest.cc)
-set(TEST_SRC_FILES ${TEST_SRC_FILES} avltree_unittest.cc)
-set(TEST_SRC_FILES ${TEST_SRC_FILES} dispatcher_table_cxx11_unittest.cc)
 
+file(GLOB TEST_SRC_FILES ${TEST_SRC_FILES} data_struct/*.cc)
 file(GLOB TEST_SRC_FILES ${TEST_SRC_FILES} effective_cxx/*.cc)
 file(GLOB TEST_SRC_FILES ${TEST_SRC_FILES} effective_modern_cxx/*.cc)
 file(GLOB TEST_SRC_FILES ${TEST_SRC_FILES} the_cxx_stl_a_tutorial_and_reference_2012/*.cc)

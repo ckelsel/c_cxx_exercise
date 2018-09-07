@@ -1,4 +1,4 @@
-/* Copyright 2017 kunming.xie
+/* CopyRight 2017 kunming.xie
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,100 +12,100 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#include <stdio.h>
-#include <stdlib.h>
-#include <assert.h>
-#include "tree.h"
+#include "tree.hpp"
+#include <cassert>
+#include <cstdio>
+#include <cstdlib>
 
 // 用时30分钟
 // 放空的都不会做
 
-struct TreeNode {
-    ElementType element;
-    PtrToNode left;
-    PtrToNode right;
-};
-
 // 后序遍历
-SearchTree TreeMakeEmpty(SearchTree T)
+InterfaceTreeNode * TreeNode1::TreeMakeEmpty(InterfaceTreeNode * T)
 {
     if (T) {
-        TreeMakeEmpty(T->left);
-        TreeMakeEmpty(T->right);
-        if (T->left && T->right) {
-            free(T);
+        TreeMakeEmpty(T->Left);
+        TreeMakeEmpty(T->Right);
+        if (T->Left && T->Right) {
+            delete T;
             return NULL;
         }
     }
     return T;
 }
 
-Position TreeFind(ElementType X, SearchTree T)
+InterfaceTreeNode * TreeNode1::TreeFind(ElementType X, InterfaceTreeNode * T)
 {
     if (T == NULL) {
         return NULL;
     }
 
-    if (X < T->element) {
-        TreeFind(T->left);
+    if (X < T->Element) {
+        TreeFind(X, T->Left);
     }
 
-    if (X > T->element) {
-        TreeFind(T->right);
+    if (X > T->Element) {
+        TreeFind(X, T->Right);
     }
 
     return T;
 }
 
-Position TreeFindMax(SearchTree T)
+InterfaceTreeNode * TreeNode1::TreeFindMax(InterfaceTreeNode * T)
 {
     if (T == NULL) {
         return NULL;
     }
 
-    Position position;
-    while (T->right != NULL) {
-        position = T->right;
+    InterfaceTreeNode * position;
+    while (T->Right != NULL) {
+        position = T->Right;
     }
 
     return position;
 }
 
-Position TreeFindMin(SearchTree T)
+InterfaceTreeNode * TreeNode1::TreeFindMin(InterfaceTreeNode * T)
 {
     if (T == NULL) {
         return NULL;
     }
 
-    Position position;
-    while (T->left != NULL) {
-        position = T->left;
+    InterfaceTreeNode * position;
+    while (T->Left != NULL) {
+        position = T->Left;
     }
 
     return position;
 }
 
-SearchTree TreeInsert(ElementType X, SearchTree T)
+InterfaceTreeNode * TreeNode1::TreeInsert(ElementType X, InterfaceTreeNode * T)
 {
-
+    return NULL;
 }
 
-SearchTree TreeDelete(ElementType X, SearchTree T)
+InterfaceTreeNode * TreeNode1::TreeDelete(ElementType X, InterfaceTreeNode * T)
 {
-
+    return NULL;
 }
 
-ElementType TreeRetrieve(Position P)
+ElementType TreeNode1::TreeRetrieve(InterfaceTreeNode * P)
 {
-    return P->element;
+    return P->Element;
 }
 
 // 中序遍历
-void TreePrint(SearchTree T)
+void TreeNode1::TreePrint(InterfaceTreeNode * T)
 {
     if (T) {
-        TreePrint(T->left);
-        printf("%d", T->element);
-        TreePrint(T->right);
+        TreePrint(T->Left);
+        printf("%d", T->Element);
+        TreePrint(T->Right);
     }
 }
+
+int TreeNode1::TreeDepth(InterfaceTreeNode * T)
+{
+    return 0;
+}
+
