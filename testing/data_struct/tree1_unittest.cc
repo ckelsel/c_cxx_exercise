@@ -16,6 +16,16 @@
 #include "gtest/gtest.h"
 #include "tree/tree.hpp"
 
-TEST(TREE1, MakeEmpty)
+TEST(TreeNode1, MakeEmpty)
 {
+    InterfaceTreeNode *root = new TreeNode1();
+
+    for (int i = 0, j = 0; i < 50; i++, j = (j + 7) % 50) {
+        root->TreeInsert(j, root);
+    }
+
+    root = root->TreeMakeEmpty(root);
+
+    ASSERT_EQ(nullptr, root);
 }
+

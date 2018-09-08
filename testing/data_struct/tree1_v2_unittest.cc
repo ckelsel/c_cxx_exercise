@@ -16,6 +16,81 @@
 #include "gtest/gtest.h"
 #include "tree/tree.hpp"
 
-TEST(TREE1_V2, MakeEmpty)
+TEST(TreeNode1_v2, MakeEmpty)
 {
+    InterfaceTreeNode *root = new TreeNode1_v2();
+
+    for (int i = 0, j = 0; i < 50; i++, j = (j + 7) % 50) {
+        root->TreeInsert(j, root);
+    }
+
+    root = root->TreeMakeEmpty(root);
+
+    ASSERT_EQ(nullptr, root);
 }
+
+TEST(TreeNode1_v2, Find)
+{
+    InterfaceTreeNode *root = new TreeNode1_v2();
+
+    for (int i = 0, j = 0; i < 50; i++, j = (j + 7) % 50) {
+        root->TreeInsert(j, root);
+    }
+
+    for (int i = 0, j = 0; i < 50; i++, j = (j + 7) % 50) {
+        InterfaceTreeNode *position = root->TreeFind(j, root);
+        ASSERT_EQ(position->TreeRetrieve(position), j);
+    }
+
+    root = root->TreeMakeEmpty(root);
+
+    ASSERT_EQ(nullptr, root);
+}
+
+TEST(TreeNode1_v2, FindMin)
+{
+    InterfaceTreeNode *root = new TreeNode1_v2();
+
+    for (int i = 0, j = 0; i < 50; i++, j = (j + 7) % 50) {
+        root->TreeInsert(j, root);
+    }
+
+    InterfaceTreeNode *position = root->TreeFindMin(root);
+    ASSERT_EQ(position->TreeRetrieve(position), 0);
+
+    root = root->TreeMakeEmpty(root);
+
+    ASSERT_EQ(nullptr, root);
+}
+
+TEST(TreeNode1_v2, FindMax)
+{
+    InterfaceTreeNode *root = new TreeNode1_v2();
+
+    for (int i = 0, j = 0; i < 50; i++, j = (j + 7) % 50) {
+        root->TreeInsert(j, root);
+    }
+
+    InterfaceTreeNode *position = root->TreeFindMax(root);
+    ASSERT_EQ(position->TreeRetrieve(position), 49);
+
+    root = root->TreeMakeEmpty(root);
+
+    ASSERT_EQ(nullptr, root);
+}
+
+TEST(TreeNode1_v2, Depth)
+{
+    InterfaceTreeNode *root = new TreeNode1_v2();
+
+    for (int i = 0, j = 0; i < 50; i++, j = (j + 7) % 50) {
+        root->TreeInsert(j, root);
+    }
+
+    ASSERT_EQ(root->TreeDepth(root), 14);
+
+    root = root->TreeMakeEmpty(root);
+
+    ASSERT_EQ(nullptr, root);
+}
+
