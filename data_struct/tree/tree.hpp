@@ -13,15 +13,15 @@
  *limitations under the License.
  */
 
-#ifndef __TREE_H__
-#define __TREE_H__
+#ifndef __DATA_STRUCT_TREE_TREE_HPP__
+#define __DATA_STRUCT_TREE_TREE_HPP__
 
 typedef int ElementType;
 
 struct InterfaceTreeNode {
-    ElementType Element;
-    struct InterfaceTreeNode *Left;
-    struct InterfaceTreeNode *Right;
+    ElementType Element = 0;
+    struct InterfaceTreeNode *Left = nullptr;
+    struct InterfaceTreeNode *Right = nullptr;
 
     virtual InterfaceTreeNode *TreeMakeEmpty(InterfaceTreeNode * T) = 0;
 
@@ -41,67 +41,99 @@ struct InterfaceTreeNode {
 
     virtual int TreeDepth(InterfaceTreeNode *T) = 0;
 
-    InterfaceTreeNode() : Element(0), Left(nullptr), Right(nullptr) { }
-    virtual ~InterfaceTreeNode() { }
+    virtual void InOrder(InterfaceTreeNode *T) = 0;
+
+    virtual void PreOrder(InterfaceTreeNode *T) = 0;
+
+    virtual void PostOrder(InterfaceTreeNode *T) = 0;
+
+    InterfaceTreeNode() = default;
+    virtual ~InterfaceTreeNode() = default;
+
+    InterfaceTreeNode(const InterfaceTreeNode &) = delete;
+    InterfaceTreeNode& operator=(const InterfaceTreeNode &) = delete;
+
+    InterfaceTreeNode(InterfaceTreeNode &&) = delete;
+    InterfaceTreeNode& operator=(InterfaceTreeNode &&) = delete;
 };
 
 struct TreeNode : public InterfaceTreeNode {
-    InterfaceTreeNode *TreeMakeEmpty(InterfaceTreeNode * T);
+    InterfaceTreeNode *TreeMakeEmpty(InterfaceTreeNode * T) override;
 
-    InterfaceTreeNode *TreeFind(ElementType X, InterfaceTreeNode * T);
+    InterfaceTreeNode *TreeFind(ElementType X, InterfaceTreeNode * T) override;
 
-    InterfaceTreeNode *TreeFindMax(InterfaceTreeNode * T);
+    InterfaceTreeNode *TreeFindMax(InterfaceTreeNode * T) override;
 
-    InterfaceTreeNode *TreeFindMin(InterfaceTreeNode * T);
+    InterfaceTreeNode *TreeFindMin(InterfaceTreeNode * T) override;
 
-    InterfaceTreeNode *TreeInsert(ElementType X, InterfaceTreeNode * T);
+    InterfaceTreeNode *TreeInsert(ElementType X, InterfaceTreeNode * T) override;
 
-    InterfaceTreeNode *TreeDelete(ElementType X, InterfaceTreeNode * T);
+    InterfaceTreeNode *TreeDelete(ElementType X, InterfaceTreeNode * T) override;
 
-    ElementType TreeRetrieve(InterfaceTreeNode *P);
+    ElementType TreeRetrieve(InterfaceTreeNode *P) override;
 
-    void TreePrint(InterfaceTreeNode *T);
+    void TreePrint(InterfaceTreeNode *T) override;
 
-    int TreeDepth(InterfaceTreeNode *T);
+    int TreeDepth(InterfaceTreeNode *T) override;
+
+    void InOrder(InterfaceTreeNode *T) override { }
+
+    void PreOrder(InterfaceTreeNode *T) override { }
+
+    void PostOrder(InterfaceTreeNode *T) override { }
 };
 
 struct TreeNode1 : public InterfaceTreeNode {
-    InterfaceTreeNode *TreeMakeEmpty(InterfaceTreeNode * T);
+    InterfaceTreeNode *TreeMakeEmpty(InterfaceTreeNode * T) override;
 
-    InterfaceTreeNode *TreeFind(ElementType X, InterfaceTreeNode * T);
+    InterfaceTreeNode *TreeFind(ElementType X, InterfaceTreeNode * T) override;
 
-    InterfaceTreeNode *TreeFindMax(InterfaceTreeNode * T);
+    InterfaceTreeNode *TreeFindMax(InterfaceTreeNode * T) override;
 
-    InterfaceTreeNode *TreeFindMin(InterfaceTreeNode * T);
+    InterfaceTreeNode *TreeFindMin(InterfaceTreeNode * T) override;
 
-    InterfaceTreeNode *TreeInsert(ElementType X, InterfaceTreeNode * T);
+    InterfaceTreeNode *TreeInsert(ElementType X, InterfaceTreeNode * T) override;
 
-    InterfaceTreeNode *TreeDelete(ElementType X, InterfaceTreeNode * T);
+    InterfaceTreeNode *TreeDelete(ElementType X, InterfaceTreeNode * T) override;
 
-    ElementType TreeRetrieve(InterfaceTreeNode *P);
+    ElementType TreeRetrieve(InterfaceTreeNode *P) override;
 
-    void TreePrint(InterfaceTreeNode *T);
+    void TreePrint(InterfaceTreeNode *T) override;
 
-    int TreeDepth(InterfaceTreeNode *T);
+    int TreeDepth(InterfaceTreeNode *T) override;
+
+    void InOrder(InterfaceTreeNode *T) override { }
+
+    void PreOrder(InterfaceTreeNode *T) override { }
+
+    void PostOrder(InterfaceTreeNode *T) override { }
 };
 
 struct TreeNode1_v2 : public InterfaceTreeNode {
-    InterfaceTreeNode *TreeMakeEmpty(InterfaceTreeNode * T);
+    InterfaceTreeNode *TreeMakeEmpty(InterfaceTreeNode * T) override;
 
-    InterfaceTreeNode *TreeFind(ElementType X, InterfaceTreeNode * T);
+    InterfaceTreeNode *TreeFind(ElementType X, InterfaceTreeNode * T) override;
 
-    InterfaceTreeNode *TreeFindMax(InterfaceTreeNode * T);
+    InterfaceTreeNode *TreeFindMax(InterfaceTreeNode * T) override;
 
-    InterfaceTreeNode *TreeFindMin(InterfaceTreeNode * T);
+    InterfaceTreeNode *TreeFindMin(InterfaceTreeNode * T) override;
 
-    InterfaceTreeNode *TreeInsert(ElementType X, InterfaceTreeNode * T);
+    InterfaceTreeNode *TreeInsert(ElementType X, InterfaceTreeNode * T) override;
 
-    InterfaceTreeNode *TreeDelete(ElementType X, InterfaceTreeNode * T);
+    InterfaceTreeNode *TreeDelete(ElementType X, InterfaceTreeNode * T) override;
 
-    ElementType TreeRetrieve(InterfaceTreeNode *P);
+    ElementType TreeRetrieve(InterfaceTreeNode *P) override;
 
-    void TreePrint(InterfaceTreeNode *T);
+    void TreePrint(InterfaceTreeNode *T) override;
 
-    int TreeDepth(InterfaceTreeNode *T);
+    int TreeDepth(InterfaceTreeNode *T) override;
+
+    void InOrder(InterfaceTreeNode *T) override { }
+
+    void PreOrder(InterfaceTreeNode *T) override { }
+
+    void PostOrder(InterfaceTreeNode *T) override { }
 };
-#endif // __TREE_H__
+
+#endif //__DATA_STRUCT_TREE_TREE_HPP__
+
