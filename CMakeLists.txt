@@ -43,6 +43,8 @@ message(${COMMON_INCLUDES})
 # Module source
 #-------------------
 
+set(PROJECT_EXE_CPP11 ${PROJECT_NAME_STR}_cpp11)
+add_subdirectory(${PROJECT_SOURCE_DIR}/cpp11)
 
 set(PROJECT_LIB_DS ${PROJECT_NAME_STR}_data_struct)
 add_subdirectory(${PROJECT_SOURCE_DIR}/data_struct)
