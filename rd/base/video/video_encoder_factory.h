@@ -2,6 +2,9 @@
 #define VIDEO_ENCODER_FACTORY_H
 #include "video_encoder.h"
 
+/**
+ * 工厂方法，纯虚函数只有1个，只负责单一的功能
+*/
 class VideoEncoderFactory
 {
 private:

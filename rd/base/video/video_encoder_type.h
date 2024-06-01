@@ -1,0 +1,9 @@
+#ifndef VIDEO_ENCODER_TYPE_H
+#define VIDEO_ENCODER_TYPE_H
+
+enum VideoEncoderType {
+    VIDEO_ENCODER_H264 = 0,
+    VIDEO_ENCODER_H265 = 1,
+};
+
+#endif // VIDEO_ENCODER_TYPE_H
