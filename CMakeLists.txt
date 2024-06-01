@@ -35,6 +35,7 @@ set(COMMON_INCLUDES ${COMMON_INCLUDES} ${PROJECT_SOURCE_DIR}/effective_cxx)
 set(COMMON_INCLUDES ${COMMON_INCLUDES} ${PROJECT_SOURCE_DIR}/effective_modern_cxx)
 set(COMMON_INCLUDES ${COMMON_INCLUDES} ${PROJECT_SOURCE_DIR}/the_cxx_stl_a_tutorial_and_reference_2012)
 set(COMMON_INCLUDES ${COMMON_INCLUDES} ${PROJECT_SOURCE_DIR}/algorithm)
+set(COMMON_INCLUDES ${COMMON_INCLUDES} ${PROJECT_SOURCE_DIR}/rd)
 set(EXT_PROJECTS_DIR ${PROJECT_SOURCE_DIR}/ext)
 
 message(${COMMON_INCLUDES})
@@ -62,6 +63,10 @@ add_subdirectory(${PROJECT_SOURCE_DIR}/the_cxx_stl_a_tutorial_and_reference_2012
 set(PROJECT_LIB_ALGORITHM ${PROJECT_NAME_STR}_algorithm)
 add_subdirectory(${PROJECT_SOURCE_DIR}/algorithm)
 
+
+
+set(PROJECT_LIB_RD ${PROJECT_NAME_STR}_rd)
+add_subdirectory(${PROJECT_SOURCE_DIR}/rd)
 
 #-------------------
 # Test
