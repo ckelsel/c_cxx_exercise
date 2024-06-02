@@ -8,7 +8,7 @@ set(PROJECT_TEST_NAME ${PROJECT_LIB_NAME}_test)
 
 set(TEST_SRC_FILES unittest.cc)
 
-file(GLOB TEST_SRC_FILES ${TEST_SRC_FILES} rd/base/video/*.cc)
+file(GLOB_RECURSE TEST_SRC_FILES ${TEST_SRC_FILES} rd/*.cc)
 
 
 # file(GLOB TEST_SRC_FILES ${TEST_SRC_FILES} data_struct/*.cc)

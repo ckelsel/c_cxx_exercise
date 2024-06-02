@@ -5,6 +5,8 @@ build
 build_
 .*.swp
 
+.vscode
+
 # Compiled Object files
 *.slo
 *.lo
